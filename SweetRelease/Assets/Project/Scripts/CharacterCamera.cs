@@ -16,6 +16,16 @@ namespace Assets.Project.Scripts
         [SerializeField]
         private Camera cam;
 
+        private Vector3 initialYOffset;
+
+        private void Start()
+        {
+            if (targetEntity != null)
+            {
+                initialYOffset = transform.position - targetEntity.Position;
+            }
+        }
+
         private void LateUpdate()
         {
             if (targetEntity == null)
@@ -54,6 +64,10 @@ namespace Assets.Project.Scripts
 
                 transform.position += moveDirection * followSpeed * Time.deltaTime;
             }
+
+            Vector3 newPosition = transform.position;
+            newPosition.y = targetEntity.Position.y + initialYOffset.y;
+            transform.position = newPosition;
         }
     }
 }
