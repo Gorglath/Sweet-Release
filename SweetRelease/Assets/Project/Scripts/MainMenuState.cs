@@ -17,7 +17,7 @@ namespace Assets.Project.Scripts
         public override async UniTask PreTransitionIn()
         {
             Object loadedObjectMainMenuView = await Resources.LoadAsync<MainMenuView>(mainMenuViewPath);
-            Object loadedCreditsObject = await Resources.LoadAsync<CreditsView>(mainMenuViewPath);
+            Object loadedCreditsObject = await Resources.LoadAsync<CreditsView>(creditsViewPath);
 
             mainMenuViewPrefab = (MainMenuView)loadedObjectMainMenuView;
             creditsViewPrefab = (CreditsView)loadedCreditsObject;
@@ -92,20 +92,20 @@ namespace Assets.Project.Scripts
         {
             creditsView.OnCloseCreditsRequestedEvent -= OnCloseCreditsRequested;
             await creditsView.Hide();
-            Object.Destroy(creditsView);
+            Object.Destroy(creditsView.gameObject);
         }
 
         private void DisposeViews()
         {
             if (mainMenuView != null)
             {
-                Object.Destroy(mainMenuView);
+                Object.Destroy(mainMenuView.gameObject);
             }
 
             if (creditsView != null)
             {
                 creditsView.OnCloseCreditsRequestedEvent -= OnCloseCreditsRequested;
-                Object.Destroy(creditsView);
+                Object.Destroy(creditsView.gameObject);
             }
         }
 

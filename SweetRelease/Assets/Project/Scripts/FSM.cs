@@ -9,13 +9,13 @@ namespace Assets.Project.Scripts
         public async UniTask TransitionToState(AppState newState)
         {
             newState.SetFSM(this);
-
             if (currentState == null)
             {
                 await newState.PreTransitionIn();
                 await newState.DuringTransitionIn();
                 await newState.PostTransitionIn();
                 newState.OnStateEnter();
+                currentState = newState;
                 return;
             }
 

@@ -2,6 +2,9 @@
 {
     public class LevelSelectionState : AppState
     {
-
+        public override void Dispose()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
