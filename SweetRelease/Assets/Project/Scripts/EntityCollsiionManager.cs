@@ -5,20 +5,8 @@ namespace Assets.Project.Scripts
 {
     public class EntityCollsiionManager : MonoBehaviour
     {
-        public static EntityCollsiionManager instance;
         public readonly List<Entity> pendingRemovalEntities = new();
         public readonly Dictionary<Entity, Bounds> registeredEntities = new();
-
-        private void Awake()
-        {
-            if (instance != null)
-            {
-                instance.Clear();
-                Destroy(instance);
-            }
-
-            instance = this;
-        }
 
         public void RegisterEntity(Entity entity)
         {

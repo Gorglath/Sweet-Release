@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Assets.Project.Scripts
 {
-    public abstract class UITransitionAnimation : MonoBehaviour
+    public abstract class UIAnimation : MonoBehaviour
     {
         public abstract UniTask Play();
     }

@@ -9,8 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b695771ef8207848b926aa18c68cc6a, type: 3}
-  m_Name: LevelSelectionConfig
-  m_EditorClassIdentifier: 
-  levelConfigs:
-  - {fileID: 11400000, guid: 89e967644146dde40a3ebe2166a9768e, type: 2}
+  m_Script: {fileID: 0}
+  m_Name: FlatLevelConfig
+  m_EditorClassIdentifier: Assembly-CSharp:Assets.Project.Scripts:LevelConfig
+  Id: 0
+  Name: Flat
+  LevelPrefab: {fileID: 1372427342163923372, guid: e9dd2ec9df539ae4696f56662d5c9e1a, type: 3}

@@ -32,12 +32,12 @@ namespace Assets.Project.Scripts
             switch (newState)
             {
                 case EntityState.GLIDING:
-                    TrailManager.instance.RegisterEntity(this);
+                    trailManager.RegisterEntity(this);
                     break;
                 case EntityState.AIRBOUND:
                 case EntityState.STATIC:
                 case EntityState.DEAD:
-                    TrailManager.instance.UnregisterEntity(this);
+                    trailManager.UnregisterEntity(this);
                     break;
                 case EntityState.NONE:
                     break;
@@ -45,7 +45,7 @@ namespace Assets.Project.Scripts
         }
         public override void OnCollisionObstacle(Bounds myBounds, Entity other, Bounds otherBounds, Vector3 collisionPoint)
         {
-            if (EntityState == EntityState.DEAD)
+            if (EntityState is EntityState.DEAD or EntityState.STATIC)
             {
                 return;
             }
@@ -56,7 +56,6 @@ namespace Assets.Project.Scripts
             {
                 // Snap to the collision point and start gliding.
                 m_cachedTransform.position = new Vector3(m_cachedTransform.position.x, collisionPoint.y, m_cachedTransform.position.z);
-                TrailManager.instance.RegisterEntity(this);
                 SetState(EntityState.GLIDING);
                 return;
             }
@@ -82,7 +81,6 @@ namespace Assets.Project.Scripts
             {
                 m_jumpVelocity = Mathf.Sqrt(config.JumpHeight * -2 * Physics.gravity.y * config.GravityScale);
                 SetState(EntityState.AIRBOUND);
-                TrailManager.instance.UnregisterEntity(this);
                 return;
             }
         }
@@ -132,7 +130,7 @@ namespace Assets.Project.Scripts
             }
 
             m_isOnBoundIntervalCounter = 0;
-            return EntityCollsiionManager.instance.IsOnBounds(this);
+            return entityCollisionManager.IsOnBounds(this);
         }
 
         public override void OnEntityAirbound()

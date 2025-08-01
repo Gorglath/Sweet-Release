@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Assets.Project.Scripts
 {
-    public class SimpleUITransitionAnimation : UITransitionAnimation
+    public class SimpleUITransitionAnimation : UIAnimation
     {
         [SerializeField]
         private GameObject rootObject;

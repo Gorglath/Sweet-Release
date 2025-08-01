@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Assets.Project.Scripts
@@ -15,19 +16,30 @@ namespace Assets.Project.Scripts
         public EntityState EntityState { get; private set; }
 
         protected Transform m_cachedTransform;
+        protected TrailManager trailManager;
+        protected EntityCollsiionManager entityCollisionManager;
+
+        public event Action<Entity> OnEntityDiedEvent;
+        //protected event Action<Entity, collectable> OnEntityCollectedCollectableEvent;
+
+        public void Init(TrailManager trailManager, EntityCollsiionManager entityCollisionManager)
+        {
+            this.trailManager = trailManager;
+            this.entityCollisionManager = entityCollisionManager;
+        }
 
         private void OnEnable()
         {
             m_cachedTransform = transform;
             OnCreated();
-            EntityCollsiionManager.instance.RegisterEntity(this);
+            entityCollisionManager.RegisterEntity(this);
             SetState(initialState);
         }
 
         private void OnDisable()
         {
             OnDisposed();
-            EntityCollsiionManager.instance.UnregisterEntity(this);
+            entityCollisionManager.UnregisterEntity(this);
         }
 
         private void Update()
@@ -68,6 +80,11 @@ namespace Assets.Project.Scripts
             {
                 EntityState = state;
                 OnStateChanged(state);
+
+                if (EntityState == EntityState.DEAD)
+                {
+                    OnEntityDiedEvent?.Invoke(this);
+                }
             }
         }
 

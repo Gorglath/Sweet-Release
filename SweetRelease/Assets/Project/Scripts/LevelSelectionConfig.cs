@@ -13,6 +13,6 @@ namespace Assets.Project.Scripts
     {
         public int Id;
         public string Name;
-        public GameObject LevelPrefab;
+        public Level LevelPrefab;
     }
 }

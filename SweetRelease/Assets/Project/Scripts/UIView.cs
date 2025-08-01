@@ -6,10 +6,10 @@ namespace Assets.Project.Scripts
     public abstract class UIView : MonoBehaviour
     {
         [SerializeField]
-        protected UITransitionAnimation transitionInAnimation;
+        protected UIAnimation transitionInAnimation;
 
         [SerializeField]
-        protected UITransitionAnimation transitionOutAnimation;
+        protected UIAnimation transitionOutAnimation;
 
         public virtual async UniTask Show()
         {

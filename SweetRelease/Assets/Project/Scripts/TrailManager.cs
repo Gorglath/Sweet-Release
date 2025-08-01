@@ -7,17 +7,6 @@ namespace Assets.Project.Scripts
     {
         public readonly Dictionary<Entity, Trail> entityTrails = new();
         public readonly List<Entity> pendingRemovalEntities = new();
-        public static TrailManager instance;
-        private void Awake()
-        {
-            if (instance != null)
-            {
-                instance.Clear();
-                Destroy(instance);
-            }
-
-            instance = this;
-        }
 
         public void RegisterEntity(Entity entity)
         {
