@@ -12,15 +12,19 @@ namespace Assets.Project.Scripts
         private readonly Queue<Vector3> points = new();
         private readonly Entity owner;
         private readonly int length;
-        public Trail(Entity owner, TrailConfig config)
+        private readonly LineRenderer lineRenderer;
+
+        public Trail(Entity owner, TrailConfig config, LineRenderer trailLineRendederPrefab)
         {
             this.owner = owner;
             length = config.TrailLength;
+            lineRenderer = Object.Instantiate(trailLineRendederPrefab);
         }
 
         public void Clear()
         {
             points.Clear();
+            Object.Destroy(lineRenderer.gameObject);
         }
 
         public void Update()
@@ -39,20 +43,8 @@ namespace Assets.Project.Scripts
             }
 
             points.Enqueue(owner.Position);
-        }
-
-        public void OnDrawGizmos()
-        {
-            if (points.Count == 0) { return; }
-            for (int i = 0; i < points.Count - 1; i++)
-            {
-                Vector3 currentPoint = points.ElementAt(i);
-                Vector3 nextPoint = points.ElementAt(i + 1);
-                Gizmos.DrawSphere(currentPoint, 0.2f);
-                Gizmos.DrawLine(currentPoint, nextPoint);
-            }
-
-            Gizmos.DrawSphere(points.Last(), 0.2f);
+            lineRenderer.positionCount = points.Count;
+            lineRenderer.SetPositions(points.ToArray());
         }
 
         public bool Overlaps(Entity entity, out Vector3 overlapPosition)

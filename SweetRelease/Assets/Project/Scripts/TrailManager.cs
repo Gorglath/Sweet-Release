@@ -5,6 +5,9 @@ namespace Assets.Project.Scripts
 {
     public class TrailManager : MonoBehaviour
     {
+        [SerializeField]
+        private LineRenderer lineRendererTemplate;
+
         public readonly Dictionary<Entity, Trail> entityTrails = new();
         public readonly List<Entity> pendingRemovalEntities = new();
 
@@ -15,9 +18,10 @@ namespace Assets.Project.Scripts
                 return;
             }
 
-            Trail trail = new(entity, entity.Config.TrailConfig);
+            Trail trail = new(entity, entity.Config.TrailConfig, lineRendererTemplate);
             entityTrails.Add(entity, trail);
         }
+
         public void UnregisterEntity(Entity entity)
         {
             if (!entityTrails.ContainsKey(entity))
@@ -55,6 +59,7 @@ namespace Assets.Project.Scripts
 
             foreach (Entity pendingEntity in pendingRemovalEntities)
             {
+                entityTrails[pendingEntity].Clear();
                 _ = entityTrails.Remove(pendingEntity);
             }
 
@@ -64,11 +69,6 @@ namespace Assets.Project.Scripts
         public void Clear()
         {
             foreach (Trail trail in entityTrails.Values) { trail.Clear(); }
-        }
-
-        private void OnDrawGizmos()
-        {
-            foreach (Trail trail in entityTrails.Values) { trail.OnDrawGizmos(); }
         }
     }
 }

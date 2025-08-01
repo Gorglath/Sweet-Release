@@ -62,12 +62,12 @@ namespace Assets.Project.Scripts
 
         public override void OnStateEnter()
         {
-            StartLevel().Forget();
+            StartLevel(true).Forget();
         }
 
-        private async UniTask StartLevel()
+        private async UniTask StartLevel(bool showCinematic)
         {
-            await activeLevel.StartLevel(true, gameplayView.PlayCountdownAnimation);
+            await activeLevel.StartLevel(showCinematic, gameplayView.PlayCountdownAnimation);
             gameplayView.StartTimer();
         }
 
@@ -161,7 +161,7 @@ namespace Assets.Project.Scripts
             CreateLevel();
             gameplayView.Clear();
             starsCollected = 0;
-            StartLevel().Forget();
+            StartLevel(false).Forget();
         }
 
         private void TryDisposeGameOverViews()
