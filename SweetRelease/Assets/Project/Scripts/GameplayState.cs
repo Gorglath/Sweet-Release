@@ -6,6 +6,9 @@ namespace Assets.Project.Scripts
     public class GameplayState : AppState
     {
         private const string GameplayView = "Prefabs/GameplayView";
+        private const string GameWonView = "Prefabs/GameWonView";
+        private const string GameRestartView = "Prefabs/GameRestartView";
+
         private readonly LevelConfig levelConfig;
 
         private Level activeLevel;
@@ -60,11 +63,12 @@ namespace Assets.Project.Scripts
 
         private void OnStarCollected()
         {
-
+            gameplayView.AddStar();
         }
 
         private void OnWonLevelRequested()
         {
+            gameplayView.StopTimer();
 
         }
 

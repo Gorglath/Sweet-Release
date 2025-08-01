@@ -50,6 +50,11 @@ namespace Assets.Project.Scripts
                 return;
             }
 
+            if (other.Config.IsCollectable)
+            {
+                return;
+            }
+
             // If we landed on a glidable position, snap and glide on it.
             Vector3 normal = otherBounds.GetSurfaceNormalAtPoint(collisionPoint);
             if (other.Config.Glidable && Vector3.Dot(normal, Vector3.up) > 0.9f)
@@ -71,6 +76,7 @@ namespace Assets.Project.Scripts
             {
                 return;
             }
+
             // We ran into a wall or something, launch it if it isn't heavy.
             SetState(EntityState.DEAD);
         }

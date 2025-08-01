@@ -9,6 +9,9 @@ namespace Assets.Project.Scripts
         private UIAnimation countdownAnimation;
 
         [SerializeField]
+        private StarsBadge starsBadge;
+
+        [SerializeField]
         private Timer timer;
 
         public void StartTimer()
@@ -29,6 +32,11 @@ namespace Assets.Project.Scripts
         public void Dispose()
         {
             ClearTimer();
+        }
+
+        public void AddStar()
+        {
+            starsBadge.AddStar();
         }
 
         public async UniTask PlayCountdownAnimation()

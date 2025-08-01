@@ -6,6 +6,7 @@
         STATIC = 1,
         GLIDING = 2,
         AIRBOUND = 3,
-        DEAD = 4
+        DEAD = 4,
+        CELEBRATE = 5
     }
 }

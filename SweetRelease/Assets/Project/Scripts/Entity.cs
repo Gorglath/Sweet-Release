@@ -74,7 +74,7 @@ namespace Assets.Project.Scripts
             OnDeactivated();
         }
 
-        protected void SetState(EntityState state)
+        public void SetState(EntityState state)
         {
             if (EntityState != state)
             {

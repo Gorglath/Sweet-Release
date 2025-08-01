@@ -10,6 +10,9 @@ namespace Assets.Project.Scripts
         private Entity playerEntity;
 
         [SerializeField]
+        private Entity goalEntity;
+
+        [SerializeField]
         private CharacterCamera playerCamera;
 
         [SerializeField]
@@ -57,12 +60,23 @@ namespace Assets.Project.Scripts
         {
             entity.OnEntityDiedEvent -= OnEntityDied;
 
-            if (entity != playerEntity)
+            if (entity.Config.IsCollectable)
             {
+                if (entity == goalEntity)
+                {
+                    OnWonLevelRequestedEvent?.Invoke();
+                    return;
+                }
+
+                OnStarCollected?.Invoke();
                 return;
             }
 
-            OnRestartLevelRequestedEvent?.Invoke();
+            if (entity == playerEntity)
+            {
+                OnRestartLevelRequestedEvent?.Invoke();
+                return;
+            }
         }
 
         public void Dispose()
