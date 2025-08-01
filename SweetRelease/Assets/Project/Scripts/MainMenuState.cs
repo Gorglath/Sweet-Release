@@ -28,14 +28,6 @@ namespace Assets.Project.Scripts
             mainMenuView = Object.Instantiate(mainMenuViewPrefab);
             return UniTask.CompletedTask;
         }
-
-        public override UniTask PostTransitionIn()
-        {
-            mainMenuViewPrefab = null;
-            Resources.UnloadAsset(mainMenuViewPrefab);
-            return UniTask.CompletedTask;
-        }
-
         public override UniTask PreTransitionOut()
         {
             UnsubscribeListeners();

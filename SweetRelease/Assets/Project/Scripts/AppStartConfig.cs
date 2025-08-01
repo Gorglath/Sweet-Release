@@ -14,5 +14,6 @@ namespace Assets.Project.Scripts
     public class AppStartConfig : ScriptableObject
     {
         public AppStateType InitialState;
+        public LevelConfig gameplayLevelConfig;
     }
 }

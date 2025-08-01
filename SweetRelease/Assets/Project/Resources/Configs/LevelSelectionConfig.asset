@@ -9,8 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c676b2ad3cf76d343b4295c16c504228, type: 3}
-  m_Name: MainMenuAppStartupConfig
+  m_Script: {fileID: 11500000, guid: 9b695771ef8207848b926aa18c68cc6a, type: 3}
+  m_Name: LevelSelectionConfig
   m_EditorClassIdentifier: 
-  InitialState: 2
-  gameplayLevelConfig: {fileID: 0}
+  levelConfigs: []

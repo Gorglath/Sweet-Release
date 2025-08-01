@@ -26,7 +26,7 @@ namespace Assets.Project.Scripts
                     fsm.TransitionToState(new LevelSelectionState()).Forget();
                     break;
                 case AppStateType.GAMEPLAY:
-                    fsm.TransitionToState(new GameplayState()).Forget();
+                    fsm.TransitionToState(new GameplayState(startConfig.gameplayLevelConfig)).Forget();
                     break;
                 case AppStateType.NONE:
                 default:

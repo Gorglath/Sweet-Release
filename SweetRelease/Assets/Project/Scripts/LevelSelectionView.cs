@@ -20,6 +20,11 @@ namespace Assets.Project.Scripts
         public event Action<int> OnLevelSelectRequestedEvent;
         public event Action OnReturnRequestedEvent;
 
+        private void Awake()
+        {
+            levelSelectionButtonTemplate.gameObject.SetActive(false);
+        }
+
         public void OnEnable()
         {
             returnButton.onClick.AddListener(OnReturnButtonClicked);
@@ -58,6 +63,7 @@ namespace Assets.Project.Scripts
                 LevelSelectionButton createdButton = Instantiate(levelSelectionButtonTemplate, levelsContainer);
                 createdButton.Set(configs[i], i);
                 createdButton.OnLevelSelectRequestedEvent += OnLevelSelectRequested;
+                createdButton.gameObject.SetActive(true);
                 levelSelectionButtons.Add(createdButton);
             }
         }

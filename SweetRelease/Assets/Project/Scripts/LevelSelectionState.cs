@@ -29,12 +29,6 @@ namespace Assets.Project.Scripts
             return UniTask.CompletedTask;
         }
 
-        public override UniTask PostTransitionIn()
-        {
-            Resources.UnloadAsset(levelSelectionViewPrefab);
-            return UniTask.CompletedTask;
-        }
-
         public override UniTask PreTransitionOut()
         {
             UnsubscribeListeners();
