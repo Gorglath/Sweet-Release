@@ -90,6 +90,11 @@ namespace Assets.Project.Scripts
 
         private async UniTask ShowGameWonView()
         {
+            if (PlayerPrefs.GetInt(levelConfig.Id.ToString()) < starsCollected)
+            {
+                PlayerPrefs.SetInt(levelConfig.Id.ToString(), starsCollected);
+            }
+
             gameWonView = GameObject.Instantiate(gameWonViewPrefab);
 
             await gameWonView.Show();

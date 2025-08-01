@@ -16,6 +16,9 @@ namespace Assets.Project.Scripts
         [SerializeField]
         private TMP_Text levelNumberLabel;
 
+        [SerializeField]
+        private StarsBadge starsBadge;
+
         public event Action<int> OnLevelSelectRequestedEvent;
         private int id;
 
@@ -39,6 +42,7 @@ namespace Assets.Project.Scripts
             id = config.Id;
             levelNumberLabel.text = levelNumber.ToString();
             NameLabel.text = config.Name;
+            starsBadge.Init(PlayerPrefs.GetInt(config.Id.ToString(), 0));
         }
     }
 }
