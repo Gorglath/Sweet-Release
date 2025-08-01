@@ -17,6 +17,9 @@ namespace Assets.Project.Scripts
         private Button levelSelectionButton;
 
         [SerializeField]
+        private Button nextLevelButton;
+
+        [SerializeField]
         private TMP_Text totalTimeLabel;
 
         [SerializeField]
@@ -36,17 +39,25 @@ namespace Assets.Project.Scripts
 
         public event Action OnRestartRequestedEvent;
         public event Action OnLevelSelectRequestedEvent;
+        public event Action OnNextLevelRequestEvent;
 
         private void OnEnable()
         {
             restartButton.onClick.AddListener(OnRestartButtonClicked);
             levelSelectionButton.onClick.AddListener(OnLevelSelectionButtonClicked);
+            nextLevelButton.onClick.AddListener(OnNextLevelButtonClicked);
+        }
+
+        private void OnNextLevelButtonClicked()
+        {
+            OnNextLevelRequestEvent?.Invoke();
         }
 
         private void OnDisable()
         {
             restartButton.onClick.RemoveListener(OnRestartButtonClicked);
             levelSelectionButton.onClick.RemoveListener(OnLevelSelectionButtonClicked);
+            nextLevelButton.onClick.RemoveListener(OnNextLevelButtonClicked);
         }
 
         private void OnLevelSelectionButtonClicked()
@@ -57,6 +68,11 @@ namespace Assets.Project.Scripts
         private void OnRestartButtonClicked()
         {
             OnRestartRequestedEvent?.Invoke();
+        }
+
+        public void Init(bool hasNextLevel)
+        {
+            nextLevelButton.gameObject.SetActive(hasNextLevel);
         }
 
         public async UniTask PlayWinAnimation(float totalTime, int starsCollected)

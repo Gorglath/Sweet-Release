@@ -5,6 +5,7 @@ namespace Assets.Project.Scripts
 {
     public class GameplayState : AppState
     {
+        private const string LevelSelectionConfigPath = "Configs/LevelSelectionConfig";
         private const string GameplayViewPath = "Prefabs/GameplayView";
         private const string GameWonViewPath = "Prefabs/GameWonView";
         private const string GameRestartView = "Prefabs/GameRestartView";
@@ -22,6 +23,7 @@ namespace Assets.Project.Scripts
         private GameRestartView gameRestartView;
 
         private int starsCollected;
+        private LevelSelectionConfig levelSelectionConfig;
 
         public GameplayState(LevelConfig config)
         {
@@ -38,6 +40,9 @@ namespace Assets.Project.Scripts
 
             Object loadedGameRestartView = await Resources.LoadAsync<GameRestartView>(GameRestartView);
             gameRestartViewPrefab = (GameRestartView)loadedGameRestartView;
+
+            Object loadedConfig = await Resources.LoadAsync<LevelSelectionConfig>(LevelSelectionConfigPath);
+            levelSelectionConfig = (LevelSelectionConfig)loadedConfig;
         }
 
         public override UniTask DuringTransitionIn()
@@ -97,24 +102,43 @@ namespace Assets.Project.Scripts
 
             gameWonView = GameObject.Instantiate(gameWonViewPrefab);
 
+            bool hasNextLevel = System.Array.IndexOf(levelSelectionConfig.levelConfigs, levelConfig) != levelSelectionConfig.levelConfigs.Length - 1;
+            gameWonView.Init(hasNextLevel);
+
             await gameWonView.Show();
             await gameWonView.PlayWinAnimation(gameplayView.TotalTime, starsCollected);
-
-            gameWonView.OnLevelSelectRequestedEvent += OnLevelSelectRequested;
-            gameWonView.OnRestartRequestedEvent += OnRestartLevelRequested;
+            SubscribeGameWonListeners();
         }
 
+        private void SubscribeGameWonListeners()
+        {
+            gameWonView.OnLevelSelectRequestedEvent += OnLevelSelectRequested;
+            gameWonView.OnRestartRequestedEvent += OnRestartLevelRequested;
+            gameWonView.OnNextLevelRequestEvent += OnNextLevelRequested;
+        }
+        private void UnsubscribeGameWonListeners()
+        {
+            gameWonView.OnLevelSelectRequestedEvent -= OnLevelSelectRequested;
+            gameWonView.OnRestartRequestedEvent -= OnRestartLevelRequested;
+            gameWonView.OnNextLevelRequestEvent -= OnNextLevelRequested;
+        }
+        private void OnNextLevelRequested()
+        {
+            UnsubscribeGameWonListeners();
+            int currentLevelIndex = System.Array.IndexOf(levelSelectionConfig.levelConfigs, levelConfig);
+            fsm.TransitionToState(new GameplayState(levelSelectionConfig.levelConfigs[currentLevelIndex + 1])).Forget();
+        }
 
         private void OnLevelSelectRequested()
         {
             if (gameWonView != null)
             {
-                gameWonView.OnLevelSelectRequestedEvent -= OnLevelSelectRequested;
+                UnsubscribeGameWonListeners();
             }
 
             if (gameRestartView != null)
             {
-                gameRestartView.OnLevelSelectRequestedEvent -= OnLevelSelectRequested;
+                UnsubscribeGameRestartListeners();
             }
 
             fsm.TransitionToState(new LevelSelectionState()).Forget();
@@ -124,12 +148,12 @@ namespace Assets.Project.Scripts
         {
             if (gameWonView != null)
             {
-                gameWonView.OnLevelSelectRequestedEvent -= OnLevelSelectRequested;
+                UnsubscribeGameWonListeners();
             }
 
             if (gameRestartView != null)
             {
-                gameRestartView.OnLevelSelectRequestedEvent -= OnLevelSelectRequested;
+                UnsubscribeGameRestartListeners();
             }
 
             TryDisposeLevel();
@@ -144,17 +168,21 @@ namespace Assets.Project.Scripts
         {
             if (gameWonView != null)
             {
-                gameWonView.OnLevelSelectRequestedEvent -= OnLevelSelectRequested;
-                gameWonView.OnRestartRequestedEvent -= OnRestartLevelRequested;
+                UnsubscribeGameWonListeners();
                 Object.Destroy(gameWonView.gameObject);
             }
 
             if (gameRestartView != null)
             {
-                gameRestartView.OnLevelSelectRequestedEvent -= OnLevelSelectRequested;
-                gameRestartView.OnRestartRequestedEvent -= OnRestartLevelRequested;
+                UnsubscribeGameRestartListeners();
                 Object.Destroy(gameRestartView.gameObject);
             }
+        }
+
+        private void UnsubscribeGameRestartListeners()
+        {
+            gameRestartView.OnLevelSelectRequestedEvent -= OnLevelSelectRequested;
+            gameRestartView.OnRestartRequestedEvent -= OnRestartLevelRequested;
         }
 
         private void CreateLevel()
