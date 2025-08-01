@@ -136,6 +136,7 @@ namespace Assets.Project.Scripts
             TryDisposeGameOverViews();
             CreateLevel();
             gameplayView.Clear();
+            starsCollected = 0;
             StartLevel().Forget();
         }
 

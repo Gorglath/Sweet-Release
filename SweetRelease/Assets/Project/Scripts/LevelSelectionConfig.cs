@@ -7,12 +7,4 @@ namespace Assets.Project.Scripts
     {
         public LevelConfig[] levelConfigs;
     }
-
-    [CreateAssetMenu(menuName = "SweetRelease/LevelConfig")]
-    public class LevelConfig : ScriptableObject
-    {
-        public int Id;
-        public string Name;
-        public Level LevelPrefab;
-    }
 }

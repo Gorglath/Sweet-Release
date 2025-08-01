@@ -62,7 +62,7 @@ namespace Assets.Project.Scripts
             {
                 LevelSelectionButton createdButton = Instantiate(levelSelectionButtonTemplate, levelsContainer);
                 createdButton.gameObject.SetActive(true);
-                createdButton.Set(configs[i], i);
+                createdButton.Set(configs[i], i + 1);
                 createdButton.OnLevelSelectRequestedEvent += OnLevelSelectRequested;
                 levelSelectionButtons.Add(createdButton);
             }

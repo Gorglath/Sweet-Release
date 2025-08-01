@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd3f09b693aca014ca0bbc9cc0a6bc16, type: 3}
   m_Name: CharacterConfig
   m_EditorClassIdentifier: 
-  MovementSpeed: 10
+  MovementSpeed: 8
   JumpMovementSpeed: 9
   RotationAngle: 15
-  RotationSpeed: 10
+  RotationSpeed: 12
   JumpHeight: 3
   FallJumpHeight: 0
   GravityScale: 1

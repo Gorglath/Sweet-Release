@@ -9,8 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c676b2ad3cf76d343b4295c16c504228, type: 3}
-  m_Name: MainMenuAppStartupConfig
-  m_EditorClassIdentifier: 
-  InitialState: 1
-  gameplayLevelConfig: {fileID: 11400000, guid: 89e967644146dde40a3ebe2166a9768e, type: 2}
+  m_Script: {fileID: 0}
+  m_Name: Cherry_On_TopConfig
+  m_EditorClassIdentifier: Assembly-CSharp:Assets.Project.Scripts:LevelConfig
+  Id: 1
+  Name: Cherry On Top
+  LevelPrefab: {fileID: 2993663713597689291, guid: ac5a770f00a73ac4b9e8862c6bb65e4d, type: 3}

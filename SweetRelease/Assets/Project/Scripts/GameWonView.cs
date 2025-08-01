@@ -36,7 +36,6 @@ namespace Assets.Project.Scripts
 
         public event Action OnRestartRequestedEvent;
         public event Action OnLevelSelectRequestedEvent;
-        public event Action OnNextLevelRequestedEvent;
 
         private void OnEnable()
         {
