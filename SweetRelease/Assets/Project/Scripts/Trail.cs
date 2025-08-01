@@ -58,12 +58,15 @@ namespace Assets.Project.Scripts
         public bool Overlaps(Entity entity, out Vector3 overlapPosition)
         {
             Vector3 entityPosition = entity.Position;
+            entityPosition.y = 0;
+
             int length = entity == owner ? points.Count - 2 : points.Count - 1;
             for (int i = 0; i < length; i++)
             {
                 Vector3 a = points.ElementAt(i);
+                a.y = 0;
                 Vector3 b = points.ElementAt(i + 1);
-
+                b.y = 0;
                 if (IsPointNearLineSegment(entityPosition, a, b, out overlapPosition))
                 {
                     return true;

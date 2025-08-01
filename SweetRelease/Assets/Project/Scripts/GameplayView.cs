@@ -14,6 +14,7 @@ namespace Assets.Project.Scripts
         [SerializeField]
         private Timer timer;
 
+        public float TotalTime => timer.TotalTime;
         public void StartTimer()
         {
             timer.StartTimer();
@@ -24,14 +25,15 @@ namespace Assets.Project.Scripts
             timer.StopTimer();
         }
 
-        public void ClearTimer()
+        public void Clear()
         {
             timer.ClearTimer();
+            starsBadge.Clear();
         }
 
         public void Dispose()
         {
-            ClearTimer();
+            Clear();
         }
 
         public void AddStar()

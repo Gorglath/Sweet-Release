@@ -12,7 +12,7 @@ namespace Assets.Project.Scripts
 
         private void Awake()
         {
-            foreach (Image image in starImages) { image.gameObject.SetActive(false); }
+            Clear();
         }
 
         public void Init(int activeStars)
@@ -28,6 +28,12 @@ namespace Assets.Project.Scripts
         {
             starImages[nextActiveStarImage].gameObject.SetActive(true);
             nextActiveStarImage++;
+        }
+
+        public void Clear()
+        {
+            nextActiveStarImage = 0;
+            foreach (Image image in starImages) { image.gameObject.SetActive(false); }
         }
     }
 }

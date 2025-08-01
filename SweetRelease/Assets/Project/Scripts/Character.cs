@@ -45,7 +45,7 @@ namespace Assets.Project.Scripts
         }
         public override void OnCollisionObstacle(Bounds myBounds, Entity other, Bounds otherBounds, Vector3 collisionPoint)
         {
-            if (EntityState is EntityState.DEAD or EntityState.STATIC)
+            if (EntityState is EntityState.DEAD or EntityState.STATIC or EntityState.CELEBRATE)
             {
                 return;
             }
@@ -72,7 +72,7 @@ namespace Assets.Project.Scripts
             }
 
             // Ignore if the other bounds is lower then us.
-            if (!myBounds.IsLowerSliceIntersecting(otherBounds))
+            if (!myBounds.IsLowerSliceIntersecting(otherBounds) && !myBounds.IsTopSliceIntersecting(otherBounds))
             {
                 return;
             }

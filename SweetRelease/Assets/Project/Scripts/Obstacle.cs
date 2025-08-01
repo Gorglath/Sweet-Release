@@ -4,9 +4,23 @@ namespace Assets.Project.Scripts
 {
     public class Obstacle : Entity
     {
+        [SerializeField]
+        private bool killOnCollision = false;
+
         public override void OnCollisionObstacle(Bounds myBounds, Entity other, Bounds otherBounds, Vector3 collisionPoint)
         {
+            if (!killOnCollision)
+            {
+                return;
+            }
 
+            if (EntityState == EntityState.DEAD)
+            {
+                return;
+            }
+
+            SetState(EntityState.DEAD);
+            Kill();
         }
 
         public override void OnCollisionTrail(Vector3 overlapPosition)

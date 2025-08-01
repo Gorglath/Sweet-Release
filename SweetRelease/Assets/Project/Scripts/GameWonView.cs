@@ -17,9 +17,6 @@ namespace Assets.Project.Scripts
         private Button levelSelectionButton;
 
         [SerializeField]
-        private Button nextLevelButton;
-
-        [SerializeField]
         private TMP_Text totalTimeLabel;
 
         [SerializeField]
@@ -29,28 +26,13 @@ namespace Assets.Project.Scripts
         private float timeBetweenElements;
 
         [SerializeField]
-        private float showElementDuration;
-
-        [SerializeField]
-        [Range(0.0f, 1.0f)]
-        private float elementScaleInRatio;
-
-        [SerializeField]
-        [Range(0.0f, 1.0f)]
-        private float elementScaleOutRatio;
-
-        [SerializeField]
-        [Range(0.0f, 1.0f)]
-        private float elementRevealRatio;
+        private float scaleInDuration;
 
         [SerializeField]
         private Ease scaleInEase;
 
         [SerializeField]
-        private Ease scaleOutEase;
-
-        [SerializeField]
-        private string totalTimeFormat;
+        private string totalTimeFormat = "Time : {0}";
 
         public event Action OnRestartRequestedEvent;
         public event Action OnLevelSelectRequestedEvent;
@@ -60,19 +42,12 @@ namespace Assets.Project.Scripts
         {
             restartButton.onClick.AddListener(OnRestartButtonClicked);
             levelSelectionButton.onClick.AddListener(OnLevelSelectionButtonClicked);
-            nextLevelButton.onClick.AddListener(OnNextLevelButtonClicked);
         }
 
         private void OnDisable()
         {
             restartButton.onClick.RemoveListener(OnRestartButtonClicked);
             levelSelectionButton.onClick.RemoveListener(OnLevelSelectionButtonClicked);
-            nextLevelButton.onClick.RemoveListener(OnNextLevelButtonClicked);
-        }
-
-        private void OnNextLevelButtonClicked()
-        {
-            OnNextLevelRequestedEvent?.Invoke();
         }
 
         private void OnLevelSelectionButtonClicked()
@@ -136,19 +111,13 @@ namespace Assets.Project.Scripts
         {
             Transform selectedElement = starsImages[elementIndex].transform;
             selectedElement.gameObject.SetActive(true);
-
-            float scaleInDuration = showElementDuration * elementScaleInRatio;
-            float scaleOutDuration = showElementDuration * elementScaleOutRatio;
-            float scaleOutDelay = showElementDuration * elementRevealRatio;
-
             selectedElement.localScale = Vector3.zero;
 
-            Sequence sequence = DOTween.Sequence();
-            _ = sequence.Append(selectedElement.DOScale(Vector3.one, scaleInDuration).SetEase(scaleInEase));
-            _ = sequence.Append(selectedElement.DOScale(Vector3.zero, scaleOutDuration).SetDelay(scaleOutDelay).SetEase(scaleOutEase));
-            _ = sequence.Play();
-            await UniTask.WaitUntil(() => sequence.IsComplete(), cancellationToken: token);
-            selectedElement.gameObject.SetActive(false);
+            DG.Tweening.Core.TweenerCore<Vector3, Vector3, DG.Tweening.Plugins.Options.VectorOptions> tween = selectedElement.DOScale(Vector3.one, scaleInDuration).SetEase(scaleInEase);
+            while (!token.IsCancellationRequested && tween.IsActive() && !tween.IsComplete())
+            {
+                await UniTask.Yield();
+            }
         }
     }
 }

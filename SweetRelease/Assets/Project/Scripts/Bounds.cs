@@ -94,6 +94,24 @@ namespace Assets.Project.Scripts
                 : dx <= dy && dx <= dz ? Mathf.Sign(localPoint.x) * Vector3.right : Mathf.Sign(localPoint.z) * Vector3.forward;
         }
 
+        public bool IsTopSliceIntersecting(Bounds other, float topPercentage = 0.75f)
+        {
+            float myMaxY = max.y;
+            float myHeight = extents.y;
+
+            // Define the top slice range of "my" bounds
+            float topSliceMinY = myMaxY - (myHeight * topPercentage);
+            float topSliceMaxY = myMaxY;
+
+            float otherMinY = other.min.y;
+            float otherMaxY = other.max.y;
+
+            // Check if ANY part of other intersects the top slice
+            bool intersectsTopSlice = otherMaxY > topSliceMinY && otherMinY < topSliceMaxY;
+
+            return intersectsTopSlice;
+        }
+
         public bool IsLowerSliceIntersecting(Bounds other, float threshold = 0.15f)
         {
             float myMinY = min.y;

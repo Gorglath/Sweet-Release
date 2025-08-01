@@ -99,5 +99,12 @@ namespace Assets.Project.Scripts
         public abstract void OnEntityDead();
         public abstract void OnCollisionObstacle(Bounds myBounds, Entity other, Bounds otherBounds, Vector3 collisionPoint);
         public abstract void OnCollisionTrail(Vector3 overlapPosition);
+        public virtual void OnKill() { }
+        public void Kill()
+        {
+            entityCollisionManager.UnregisterEntity(this);
+            OnKill();
+            Destroy(gameObject);
+        }
     }
 }

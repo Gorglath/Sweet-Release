@@ -24,7 +24,7 @@ namespace Assets.Project.Scripts
         [SerializeField]
         private EntityCollsiionManager entityCollsiionManager;
 
-        public event Action OnRestartLevelRequestedEvent;
+        public event Action OnPlayerCharacterDeath;
         public event Action OnWonLevelRequestedEvent;
         public event Action OnStarCollected;
         private void Awake()
@@ -64,6 +64,11 @@ namespace Assets.Project.Scripts
             {
                 if (entity == goalEntity)
                 {
+                    Entity[] levelEntities = GetComponentsInChildren<Entity>();
+                    foreach (Entity targetEntity in levelEntities)
+                    {
+                        targetEntity.SetState(EntityState.CELEBRATE);
+                    }
                     OnWonLevelRequestedEvent?.Invoke();
                     return;
                 }
@@ -74,7 +79,7 @@ namespace Assets.Project.Scripts
 
             if (entity == playerEntity)
             {
-                OnRestartLevelRequestedEvent?.Invoke();
+                OnPlayerCharacterDeath?.Invoke();
                 return;
             }
         }
@@ -85,7 +90,7 @@ namespace Assets.Project.Scripts
             foreach (Entity entity in levelEntities)
             {
                 entity.OnEntityDiedEvent -= OnEntityDied;
-                entity.Activate();
+                entity.Deactivate();
             }
         }
     }
