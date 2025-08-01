@@ -19,14 +19,11 @@ namespace Assets.Project.Scripts
                 return;
             }
 
-            await currentState.PreTransitionOut();
-            await newState.PreTransitionIn();
+            await UniTask.WhenAll(currentState.PreTransitionOut(), newState.PreTransitionIn());
 
-            await currentState.DuringTransitionOut();
-            await newState.DuringTransitionIn();
+            await UniTask.WhenAll(currentState.DuringTransitionOut(), newState.DuringTransitionIn());
 
-            await currentState.PostTransitionOut();
-            await newState.PostTransitionIn();
+            await UniTask.WhenAll(currentState.PostTransitionOut(), newState.PostTransitionIn());
 
             currentState.OnStateExit();
             newState.OnStateEnter();

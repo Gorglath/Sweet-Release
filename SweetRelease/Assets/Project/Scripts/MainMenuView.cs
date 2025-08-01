@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 namespace Assets.Project.Scripts
 {
-    public class MainMenuView : MonoBehaviour
+    public class MainMenuView : UIView
     {
         [SerializeField]
         private Button startButton;
