@@ -6,6 +6,7 @@
         {
             public const string Start = "Start";
             public const string Dead_Collision = "Dead_Collision";
+            public const string Dead_Wall = "Dead_Wall";
             public const string Wave_2 = "Wave_2";
             public const string Wave_1 = "Wave_1";
             public const string Dead_Fall = "Dead_Fall";
@@ -13,6 +14,7 @@
             public const string Jump = "Jump";
             public const string SlidingRight = "SlidingRight";
             public const string SlidingLeft = "SlidingLeft";
+            public const string Win = "Win";
         }
 
         public class SFXIds

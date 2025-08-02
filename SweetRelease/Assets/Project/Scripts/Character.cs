@@ -52,6 +52,9 @@ namespace Assets.Project.Scripts
                     trailManager.UnregisterEntity(this);
                     SFXManager.instance.PlaySFX(Constants.SFXIds.Death);
                     break;
+                case EntityState.CELEBRATE:
+                    characterAnimator.SetTrigger(Constants.CharacterAnimationParameters.Win);
+                    break;
                 case EntityState.STATIC:
                 case EntityState.NONE:
                     break;
@@ -92,7 +95,10 @@ namespace Assets.Project.Scripts
             }
 
             bool isOnBounds = entityCollisionManager.IsOnBounds(this);
-            string deathAnimation = isOnBounds ? Constants.CharacterAnimationParameters.Dead_Collision : Constants.CharacterAnimationParameters.Dead_Fall;
+            string deathAnimation =
+                isOnBounds ?
+                (other.Config.IsHeavy ? Constants.CharacterAnimationParameters.Dead_Wall : Constants.CharacterAnimationParameters.Dead_Collision)
+                : Constants.CharacterAnimationParameters.Dead_Fall;
             characterAnimator.SetTrigger(deathAnimation);
             // We ran into a wall or something, launch it if it isn't heavy.
             SetState(EntityState.DEAD);
