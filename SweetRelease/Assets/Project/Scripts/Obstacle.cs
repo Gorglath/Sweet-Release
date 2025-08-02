@@ -7,6 +7,9 @@ namespace Assets.Project.Scripts
         [SerializeField]
         private bool killOnCollision = false;
 
+        [SerializeField]
+        private GameObject killEffectPrefab;
+
         public override void OnCollisionObstacle(Bounds myBounds, Entity other, Bounds otherBounds, Vector3 collisionPoint)
         {
             if (!killOnCollision)
@@ -19,6 +22,7 @@ namespace Assets.Project.Scripts
                 return;
             }
 
+            var killEffect = Instantiate(killEffectPrefab, Position, Quaternion.identity);
             SetState(EntityState.DEAD);
             Kill();
         }

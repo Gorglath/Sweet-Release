@@ -6141,8 +6141,8 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 1, g: 0.6320754, b: 0.6320754, a: 0}
-        key1: {r: 1, g: 0.4660377, b: 0.4660377, a: 1}
+        key0: {r: 0.61960787, g: 0.08235294, b: 0.227451, a: 0}
+        key1: {r: 0.65882355, g: 0.08627451, b: 0.25882354, a: 1}
         key2: {r: 0.76470596, g: 0.30588236, b: 0.3137255, a: 1}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
@@ -9613,7 +9613,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 958f5d51b2d8269469c50776f6911a9c, type: 2}
+  - {fileID: 2100000, guid: 09fa766d29ade944a82da2fb842dc17a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -9713,7 +9713,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Config: {fileID: 11400000, guid: 9d45c1d7037e2ed43b2b3ca99199c7a0, type: 2}
   initialState: 1
+  trailAnchor: {fileID: 0}
   killOnCollision: 1
+  killEffectPrefab: {fileID: 6531192977547820938, guid: 95a9614912f7b4a48af238e467435a31, type: 3}
 --- !u!1001 &4201273996150607891
 PrefabInstance:
   m_ObjectHideFlags: 0
