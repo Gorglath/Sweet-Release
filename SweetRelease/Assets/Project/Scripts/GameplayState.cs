@@ -114,7 +114,7 @@ namespace Assets.Project.Scripts
             bool hasNextLevel = indexOfLevel != levelSelectionConfig.levelConfigs.Length - 1;
             gameWonView.Init(hasNextLevel);
             await gameWonView.Show();
-            await gameWonView.PlayWinAnimation(gameplayView.TotalTime, starsCollected, indexOfLevel);
+            await gameWonView.PlayWinAnimation(gameplayView.TotalTime, starsCollected, indexOfLevel + 1);
             SubscribeGameWonListeners();
         }
 
