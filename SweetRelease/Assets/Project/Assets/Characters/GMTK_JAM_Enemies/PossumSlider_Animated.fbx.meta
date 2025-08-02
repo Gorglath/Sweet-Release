@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a4b7f463dda8082449801be7e66c39c8
+guid: 54ea962517f11294dadbed83e9837775
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,7 +7,7 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: PossumMat
+      name: EnemyMat
     second: {fileID: 2100000, guid: 15908b1aa5df5ce438ee6baf8a569367, type: 2}
   materials:
     materialImportMode: 2

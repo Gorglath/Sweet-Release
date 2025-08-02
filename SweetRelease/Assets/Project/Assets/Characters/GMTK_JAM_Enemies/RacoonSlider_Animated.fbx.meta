@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a94dec6d6796d5448a12a8489198750a
+guid: d8d7679d5ab8695499d57a57f8c31b09
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,7 +7,7 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: RacoonMat
+      name: EnemyMat
     second: {fileID: 2100000, guid: 47d5eb3f0a1bfd34593beae19eb5cdb9, type: 2}
   materials:
     materialImportMode: 2

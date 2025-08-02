@@ -18,7 +18,6 @@ namespace Assets.Project.Scripts
 
         protected override void DoGlide()
         {
-            // Move along path based on actual path length
             float delta = GetNormalizedSpeed(config.MovementSpeed) * Time.deltaTime;
             m_position01 += delta;
 
@@ -29,7 +28,6 @@ namespace Assets.Project.Scripts
 
             Vector3 positionOnPath = path.GetPositionOnPath(m_position01);
 
-            // Add the normal movement.
             _ = m_cachedTransform.forward.normalized;
             m_cachedTransform.localPosition = Vector3.Slerp(m_cachedTransform.localPosition, positionOnPath, Time.deltaTime * m_movementSmoothness);
 
@@ -37,12 +35,38 @@ namespace Assets.Project.Scripts
             Vector3 lookTarget = path.GetPositionOnPath(lookAtPos01);
 
             Vector3 directionToLook = (lookTarget - Position).normalized;
-            directionToLook.y = 0f; // Lock to horizontal plane
+            directionToLook.y = 0f;
 
-            if (directionToLook.sqrMagnitude > 0.001f) // Avoid zero direction
+            HandleAnimator(directionToLook);
+            if (directionToLook.sqrMagnitude > 0.001f)
             {
                 Quaternion targetRotation = Quaternion.LookRotation(directionToLook);
-                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * m_rotationSmoothness);
+                m_cachedTransform.rotation = Quaternion.Slerp(m_cachedTransform.rotation, targetRotation, Time.deltaTime * m_rotationSmoothness);
+            }
+        }
+
+        private void HandleAnimator(Vector3 targetDirection)
+        {
+            // Calculate the cross product
+            Vector3 cross = Vector3.Cross(m_cachedTransform.forward, targetDirection);
+
+            // Check the sign of the dot product with the 'up' vector
+            float direction = Vector3.Dot(cross, Vector3.up);
+
+            if (direction > 0.2)
+            {
+                characterAnimator.SetBool(Constants.CharacterAnimationParameters.SlidingLeft, false);
+                characterAnimator.SetBool(Constants.CharacterAnimationParameters.SlidingRight, true);
+            }
+            else if (direction < -0.2)
+            {
+                characterAnimator.SetBool(Constants.CharacterAnimationParameters.SlidingLeft, true);
+                characterAnimator.SetBool(Constants.CharacterAnimationParameters.SlidingRight, false);
+            }
+            else
+            {
+                characterAnimator.SetBool(Constants.CharacterAnimationParameters.SlidingLeft, false);
+                characterAnimator.SetBool(Constants.CharacterAnimationParameters.SlidingRight, false);
             }
         }
 
@@ -74,6 +98,7 @@ namespace Assets.Project.Scripts
             {
                 m_pendingDeath = false;
                 SetState(EntityState.DEAD);
+                characterAnimator.SetTrigger(Constants.CharacterAnimationParameters.Dead_Fall);
             }
 
             base.OnCollisionObstacle(myBounds, other, otherBounds, collisionPoint);
