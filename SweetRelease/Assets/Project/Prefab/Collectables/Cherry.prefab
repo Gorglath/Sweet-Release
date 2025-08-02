@@ -9765,7 +9765,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 29cef1407793774419b4ef15abc6bc21, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: e5f16e481f2f3e54ea55aecd74f78efe, type: 2}
+      objectReference: {fileID: 2100000, guid: 72692f2bca643f24f9b97b6070678a26, type: 2}
     - target: {fileID: 919132149155446097, guid: 29cef1407793774419b4ef15abc6bc21, type: 3}
       propertyPath: m_Name
       value: Cherry
