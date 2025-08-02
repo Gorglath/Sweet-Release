@@ -10,11 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 72416e4aaf79b8347acaf4e36500dd6d, type: 3}
-  m_Name: CharacterEntityConfig
+  m_Name: EnemyEntityConfig
   m_EditorClassIdentifier: 
   IsHeavy: 0
-  IgnoreOwnTrail: 0
   IsCollectable: 0
   Glidable: 0
-  TrailConfig: {fileID: 11400000, guid: 673ffcbdb28df1145801721b56976e77, type: 2}
-  BoundsConfig: {fileID: 11400000, guid: 314dc7a40d7133f4eb6332cb547e82ec, type: 2}
+  TrailConfig: {fileID: 11400000, guid: 0b17a07c3587665479e90eb69f50b68e, type: 2}
+  BoundsConfig: {fileID: 11400000, guid: a13ece98fc560334dad66a1f6068139a, type: 2}

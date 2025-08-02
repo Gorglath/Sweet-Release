@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c676b2ad3cf76d343b4295c16c504228, type: 3}
-  m_Name: MainMenuAppStartupConfig
+  m_Script: {fileID: 11500000, guid: 3063db2b0e84ac34fab6e7a6a174fd85, type: 3}
+  m_Name: EnemyBoundsConfig
   m_EditorClassIdentifier: 
-  InitialState: 3
-  gameplayLevelConfig: {fileID: 11400000, guid: ef9cc058044e66046b6e91c627dcc903, type: 2}
+  Size: {x: 1, y: 2, z: 1}
+  Offset: {x: 0, y: 1, z: 0}

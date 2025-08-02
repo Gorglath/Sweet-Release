@@ -124,6 +124,11 @@ namespace Assets.Project.Scripts
 
         public override void OnEntityGliding()
         {
+            DoGlide();
+        }
+
+        protected virtual void DoGlide()
+        {
             // Check if floor is valid.
             if (!IsOnBounds())
             {
@@ -135,11 +140,6 @@ namespace Assets.Project.Scripts
                 return;
             }
 
-            DoGlide();
-        }
-
-        protected virtual void DoGlide()
-        {
             // Apply rotation
             bool isMovingLeft = Input.GetKey(KeyCode.LeftArrow);
             bool isMovingRight = Input.GetKey(KeyCode.RightArrow);

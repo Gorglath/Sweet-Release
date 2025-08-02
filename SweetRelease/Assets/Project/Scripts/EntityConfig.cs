@@ -6,6 +6,7 @@ namespace Assets.Project.Scripts
     public class EntityConfig : ScriptableObject
     {
         public bool IsHeavy = true;
+        public bool IgnoreOwnTrail = true;
         public bool IsCollectable;
         public bool Glidable;
         public TrailConfig TrailConfig;

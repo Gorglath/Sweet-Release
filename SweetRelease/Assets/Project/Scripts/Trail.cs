@@ -14,16 +14,19 @@ namespace Assets.Project.Scripts
         private readonly int length;
         private readonly LineRenderer lineRenderer;
 
-        [System.Obsolete]
         public Trail(Entity owner, TrailConfig config, LineRenderer trailLineRendederPrefab)
         {
             this.owner = owner;
             length = config.TrailLength;
             lineRenderer = Object.Instantiate(trailLineRendederPrefab);
-            lineRenderer.alignment = LineAlignment.Local;
         }
 
         public void Clear()
+        {
+            points.Clear();
+        }
+
+        public void Dispose()
         {
             points.Clear();
             Object.Destroy(lineRenderer.gameObject);

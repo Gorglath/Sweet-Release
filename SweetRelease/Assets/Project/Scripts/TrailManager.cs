@@ -13,6 +13,7 @@ namespace Assets.Project.Scripts
         public readonly List<Entity> pendingRemovalEntities = new();
 
         private bool isActive = true;
+
         public void RegisterEntity(Entity entity)
         {
             if (entityTrails.ContainsKey(entity))
@@ -56,8 +57,14 @@ namespace Assets.Project.Scripts
                     continue;
                 }
 
+                Trail entityTrail = entityTrails[entity];
                 foreach (Trail trail in entityTrails.Values)
                 {
+                    if (entityTrail == trail && entity.Config.IgnoreOwnTrail)
+                    {
+                        continue;
+                    }
+
                     if (!trail.Overlaps(entity, out Vector3 overlapPosition))
                     {
                         continue;
@@ -71,7 +78,7 @@ namespace Assets.Project.Scripts
 
             foreach (Entity pendingEntity in pendingRemovalEntities)
             {
-                entityTrails[pendingEntity].Clear();
+                entityTrails[pendingEntity].Dispose();
                 _ = entityTrails.Remove(pendingEntity);
             }
 
@@ -87,7 +94,7 @@ namespace Assets.Project.Scripts
         private async UniTask ClearNextFrame()
         {
             await UniTask.NextFrame();
-            foreach (Trail trail in entityTrails.Values) { trail.Clear(); }
+            foreach (Trail trail in entityTrails.Values) { trail.Dispose(); }
         }
     }
 }
