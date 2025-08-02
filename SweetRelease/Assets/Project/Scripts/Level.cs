@@ -68,9 +68,11 @@ namespace Assets.Project.Scripts
                     trailManager.Clear();
                     entityCollsiionManager.Clear();
                     OnWonLevelRequestedEvent?.Invoke();
+                    SFXManager.instance.PlaySFX(Constants.SFXIds.WinEat);
                     return;
                 }
 
+                SFXManager.instance.PlaySFX(Constants.SFXIds.Collect);
                 OnStarCollected?.Invoke();
                 return;
             }

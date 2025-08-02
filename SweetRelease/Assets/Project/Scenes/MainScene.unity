@@ -156,7 +156,7 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 85a128b0475343542a93cb794f234dcb, type: 3}
     - {fileID: 8300000, guid: d77160ad23070a547aaaad89742666ef, type: 3}
   - Id: Collect
-    volume: 0.8
+    volume: 0.3
     AudioClips:
     - {fileID: 8300000, guid: a037b1023143276479ae3198756f6934, type: 3}
     - {fileID: 8300000, guid: a161cc3b05acd2e4f9325c96b8a0ec9f, type: 3}
