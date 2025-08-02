@@ -26,6 +26,7 @@ namespace Assets.Project.Scripts
         public override UniTask DuringTransitionIn()
         {
             mainMenuView = Object.Instantiate(mainMenuViewPrefab);
+            MusicManager.Instance.TransitionToMainMenu();
             return UniTask.CompletedTask;
         }
         public override UniTask PreTransitionOut()

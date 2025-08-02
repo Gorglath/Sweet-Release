@@ -102,6 +102,8 @@ namespace Assets.Project.Scripts
             {
                 m_jumpVelocity = Mathf.Sqrt(config.JumpHeight * -2 * Physics.gravity.y * config.GravityScale);
                 SetState(EntityState.AIRBOUND);
+                characterAnimator.SetBool(Constants.CharacterAnimationParameters.SlidingLeft, false);
+                characterAnimator.SetBool(Constants.CharacterAnimationParameters.SlidingRight, false);
                 return;
             }
         }

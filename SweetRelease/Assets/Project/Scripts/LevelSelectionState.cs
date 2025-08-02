@@ -26,6 +26,7 @@ namespace Assets.Project.Scripts
         {
             levelSelectionView = Object.Instantiate(levelSelectionViewPrefab);
             levelSelectionView.Set(config.levelConfigs);
+            MusicManager.Instance.TransitionToMainMenu();
             return UniTask.CompletedTask;
         }
 

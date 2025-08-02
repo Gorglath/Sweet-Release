@@ -49,6 +49,7 @@ namespace Assets.Project.Scripts
         {
             gameplayView = Object.Instantiate(gameplayViewPrefab);
             CreateLevel();
+            MusicManager.Instance.TransitionToGamplay();
             return UniTask.CompletedTask;
         }
 
@@ -95,6 +96,7 @@ namespace Assets.Project.Scripts
 
         private async UniTask ShowGameWonView()
         {
+            MusicManager.Instance.Muffle();
             if (PlayerPrefs.GetInt(levelConfig.Id.ToString()) < starsCollected)
             {
                 PlayerPrefs.SetInt(levelConfig.Id.ToString(), starsCollected);
@@ -155,7 +157,12 @@ namespace Assets.Project.Scripts
             {
                 UnsubscribeGameRestartListeners();
             }
+            RestartLevel();
+        }
 
+        private void RestartLevel()
+        {
+            MusicManager.Instance.TransitionToGamplay();
             TryDisposeLevel();
             TryDisposeGameOverViews();
             CreateLevel();
@@ -212,6 +219,7 @@ namespace Assets.Project.Scripts
 
         private void OnPlayerCharacterDied()
         {
+            MusicManager.Instance.Muffle();
             gameplayView.StopTimer();
             gameRestartView = GameObject.Instantiate(gameRestartViewPrefab);
 
