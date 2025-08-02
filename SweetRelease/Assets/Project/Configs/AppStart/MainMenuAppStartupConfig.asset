@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: MainMenuAppStartupConfig
   m_EditorClassIdentifier: 
   InitialState: 3
-  gameplayLevelConfig: {fileID: 11400000, guid: 89e967644146dde40a3ebe2166a9768e, type: 2}
+  gameplayLevelConfig: {fileID: 11400000, guid: 557e3dec0c66aa440995d6e48f6c31fc, type: 2}

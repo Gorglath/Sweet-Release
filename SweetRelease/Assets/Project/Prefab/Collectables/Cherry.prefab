@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3782427568976763413}
   - component: {fileID: 5571430263182572648}
   m_Layer: 0
-  m_Name: Star
+  m_Name: Cherry
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30,7 +30,7 @@ Transform:
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children:
-  - {fileID: 3452503590046590522}
+  - {fileID: 4451620274459768824}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5571430263182572648
@@ -48,7 +48,7 @@ MonoBehaviour:
   Config: {fileID: 11400000, guid: 9d45c1d7037e2ed43b2b3ca99199c7a0, type: 2}
   initialState: 1
   killOnCollision: 1
---- !u!1001 &2910302569177907665
+--- !u!1001 &4201273996150607891
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -56,61 +56,61 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3782427568976763413}
     m_Modifications:
-    - target: {fileID: -8679921383154817045, guid: fb287f026a8130b4fb8a07aa383efa5f, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 29cef1407793774419b4ef15abc6bc21, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: fb287f026a8130b4fb8a07aa383efa5f, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 29cef1407793774419b4ef15abc6bc21, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.93
+      value: -0.485
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: fb287f026a8130b4fb8a07aa383efa5f, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 29cef1407793774419b4ef15abc6bc21, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: fb287f026a8130b4fb8a07aa383efa5f, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 29cef1407793774419b4ef15abc6bc21, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.7071067
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: fb287f026a8130b4fb8a07aa383efa5f, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 29cef1407793774419b4ef15abc6bc21, type: 3}
       propertyPath: m_LocalRotation.x
       value: -0.7071068
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: fb287f026a8130b4fb8a07aa383efa5f, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 29cef1407793774419b4ef15abc6bc21, type: 3}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: fb287f026a8130b4fb8a07aa383efa5f, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 29cef1407793774419b4ef15abc6bc21, type: 3}
       propertyPath: m_LocalRotation.z
       value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: fb287f026a8130b4fb8a07aa383efa5f, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 29cef1407793774419b4ef15abc6bc21, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: fb287f026a8130b4fb8a07aa383efa5f, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 29cef1407793774419b4ef15abc6bc21, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: fb287f026a8130b4fb8a07aa383efa5f, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 29cef1407793774419b4ef15abc6bc21, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -7511558181221131132, guid: fb287f026a8130b4fb8a07aa383efa5f, type: 3}
+    - target: {fileID: -7511558181221131132, guid: 29cef1407793774419b4ef15abc6bc21, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: c2e40fa84d53ccd428f640eac126b1fb, type: 2}
-    - target: {fileID: 919132149155446097, guid: fb287f026a8130b4fb8a07aa383efa5f, type: 3}
+      objectReference: {fileID: 2100000, guid: e5f16e481f2f3e54ea55aecd74f78efe, type: 2}
+    - target: {fileID: 919132149155446097, guid: 29cef1407793774419b4ef15abc6bc21, type: 3}
       propertyPath: m_Name
-      value: Star
+      value: Cherry
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: fb287f026a8130b4fb8a07aa383efa5f, type: 3}
---- !u!4 &3452503590046590522 stripped
+  m_SourcePrefab: {fileID: 100100000, guid: 29cef1407793774419b4ef15abc6bc21, type: 3}
+--- !u!4 &4451620274459768824 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: fb287f026a8130b4fb8a07aa383efa5f, type: 3}
-  m_PrefabInstance: {fileID: 2910302569177907665}
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 29cef1407793774419b4ef15abc6bc21, type: 3}
+  m_PrefabInstance: {fileID: 4201273996150607891}
   m_PrefabAsset: {fileID: 0}
