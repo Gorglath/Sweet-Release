@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c676b2ad3cf76d343b4295c16c504228, type: 3}
   m_Name: MainMenuAppStartupConfig
   m_EditorClassIdentifier: 
-  InitialState: 1
-  gameplayLevelConfig: {fileID: 11400000, guid: 557e3dec0c66aa440995d6e48f6c31fc, type: 2}
+  InitialState: 3
+  gameplayLevelConfig: {fileID: 11400000, guid: a493ffe94298cf64085cad70351d20f2, type: 2}
