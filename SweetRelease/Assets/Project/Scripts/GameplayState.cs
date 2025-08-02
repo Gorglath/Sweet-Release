@@ -96,7 +96,13 @@ namespace Assets.Project.Scripts
 
         private async UniTask ShowGameWonView()
         {
+            MusicManager.Instance.Pause();
+            await UniTask.Delay(1000);
+            MusicManager.Instance.Play();
+
             MusicManager.Instance.Muffle();
+            SFXManager.instance.PlaySFX(Constants.SFXIds.Win);
+
             if (PlayerPrefs.GetInt(levelConfig.Id.ToString()) < starsCollected)
             {
                 PlayerPrefs.SetInt(levelConfig.Id.ToString(), starsCollected);
@@ -106,7 +112,6 @@ namespace Assets.Project.Scripts
 
             bool hasNextLevel = System.Array.IndexOf(levelSelectionConfig.levelConfigs, levelConfig) != levelSelectionConfig.levelConfigs.Length - 1;
             gameWonView.Init(hasNextLevel);
-
             await gameWonView.Show();
             await gameWonView.PlayWinAnimation(gameplayView.TotalTime, starsCollected);
             SubscribeGameWonListeners();
@@ -219,7 +224,17 @@ namespace Assets.Project.Scripts
 
         private void OnPlayerCharacterDied()
         {
+            ShowRestartView().Forget();
+        }
+
+        private async UniTask ShowRestartView()
+        {
+            MusicManager.Instance.Pause();
+            await UniTask.Delay(1000);
+            MusicManager.Instance.Play();
+
             MusicManager.Instance.Muffle();
+            SFXManager.instance.PlaySFX(Constants.SFXIds.Lose);
             gameplayView.StopTimer();
             gameRestartView = GameObject.Instantiate(gameRestartViewPrefab);
 

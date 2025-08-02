@@ -71,6 +71,16 @@ namespace Assets.Project.Scripts
             TransitionToMusic(gameplayMusic);
         }
 
+        public void Pause()
+        {
+            audioSource.Stop();
+        }
+
+        public void Play()
+        {
+            audioSource.Play();
+        }
+
         public void Muffle()
         {
             lowPassFilter.enabled = true;

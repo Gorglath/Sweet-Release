@@ -77,11 +77,16 @@ namespace Assets.Project.Scripts
 
         public async UniTask PlayWinAnimation(float totalTime, int starsCollected)
         {
+            await UniTask.Delay(500);
+
             if (starsCollected > 0)
             {
                 int elementIndex = 0;
                 while (!destroyCancellationToken.IsCancellationRequested)
                 {
+                    string starSfxName = GetStarSfxName(elementIndex);
+                    SFXManager.instance.PlaySFX(starSfxName);
+
                     await ShowElement(elementIndex, destroyCancellationToken);
                     elementIndex++;
                     if (elementIndex == starsCollected)
@@ -97,6 +102,17 @@ namespace Assets.Project.Scripts
 
             await UniTask.Delay((int)timeBetweenElements, cancellationToken: destroyCancellationToken);
             totalTimeLabel.text = string.Format(totalTimeFormat, totalTime.ToString("F1"));
+        }
+
+        private string GetStarSfxName(int elementIndex)
+        {
+            return elementIndex switch
+            {
+                0 => Constants.SFXIds.StarsUI_1,
+                1 => Constants.SFXIds.StarsUI_2,
+                2 => Constants.SFXIds.StarsUI_3,
+                _ => Constants.SFXIds.StarsUI_3,
+            };
         }
 
         private void Awake()

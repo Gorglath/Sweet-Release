@@ -48,6 +48,7 @@ namespace Assets.Project.Scripts
             int elementIndex = 0;
             while (true)
             {
+                SFXManager.instance.PlaySFX(Constants.SFXIds.Countdown);
                 await ShowElement(elementIndex);
                 elementIndex++;
                 if (elementIndex == countdownElements.Length)
@@ -59,6 +60,8 @@ namespace Assets.Project.Scripts
 
                 await UniTask.Yield();
             }
+
+            SFXManager.instance.PlaySFX(Constants.SFXIds.CountdownEnd);
         }
 
         private async System.Threading.Tasks.Task WaitToShowNextElement()

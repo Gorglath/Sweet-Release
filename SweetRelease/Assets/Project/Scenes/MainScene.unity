@@ -168,15 +168,15 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 1aa4f33b816f7d94daadb56dcc11c833, type: 3}
     - {fileID: 8300000, guid: efb29243ccc93eb4c8ae66e3e6b496af, type: 3}
   - Id: StarsUI_1
-    volume: 0.8
+    volume: 0.3
     AudioClips:
     - {fileID: 8300000, guid: 0e5556f8325868c43842e67847c451b4, type: 3}
   - Id: StarsUI_2
-    volume: 0.8
+    volume: 0.3
     AudioClips:
     - {fileID: 8300000, guid: 38394746eec78c34bb07967a07bc4af1, type: 3}
   - Id: StarsUI_3
-    volume: 0.8
+    volume: 0.3
     AudioClips:
     - {fileID: 8300000, guid: 17908818be130e3479781d6df9aa2d03, type: 3}
   - Id: ButtonHover
@@ -188,11 +188,11 @@ MonoBehaviour:
     AudioClips:
     - {fileID: 8300000, guid: 2d6f0a1f89e44d64b94bb33290648c55, type: 3}
   - Id: Countdown
-    volume: 0.8
+    volume: 0.3
     AudioClips:
     - {fileID: 8300000, guid: 9d7839bdf9287a84fbdc318e620a0cb7, type: 3}
   - Id: CountdownEnd
-    volume: 0.8
+    volume: 0.5
     AudioClips:
     - {fileID: 8300000, guid: 4e66c02aa6af5b14babd30b7461fc278, type: 3}
   - Id: Land
@@ -200,11 +200,11 @@ MonoBehaviour:
     AudioClips:
     - {fileID: 8300000, guid: d0a385ac5200e8045ac3dd2259d7afa8, type: 3}
   - Id: Lose
-    volume: 0.8
+    volume: 0.2
     AudioClips:
     - {fileID: 8300000, guid: 563da56b9c0230f4bb4aed3bdcf16e3e, type: 3}
   - Id: Win
-    volume: 0.8
+    volume: 0.2
     AudioClips:
     - {fileID: 8300000, guid: 87544177137e21944848a2b71dd30fae, type: 3}
   - Id: WinEat
