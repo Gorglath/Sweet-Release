@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d1b672d06198e7b4eaa003766723a3cb
+guid: 5655e411246db7444a1d1a7e8ae8f254
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,7 +7,7 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Material.005
+      name: SugarMat
     second: {fileID: 2100000, guid: beefeb52a0472e4469bf2f7055441a15, type: 2}
   materials:
     materialImportMode: 2

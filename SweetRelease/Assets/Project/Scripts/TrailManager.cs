@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Cysharp.Threading.Tasks;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Assets.Project.Scripts
@@ -11,6 +12,7 @@ namespace Assets.Project.Scripts
         public readonly Dictionary<Entity, Trail> entityTrails = new();
         public readonly List<Entity> pendingRemovalEntities = new();
 
+        private bool isActive = true;
         public void RegisterEntity(Entity entity)
         {
             if (entityTrails.ContainsKey(entity))
@@ -37,6 +39,11 @@ namespace Assets.Project.Scripts
 
         public void Update()
         {
+            if (!isActive)
+            {
+                return;
+            }
+
             foreach (Trail trail in entityTrails.Values)
             {
                 trail.Update();
@@ -44,6 +51,11 @@ namespace Assets.Project.Scripts
 
             foreach (Entity entity in entityTrails.Keys)
             {
+                if (!entity.IsAlive)
+                {
+                    continue;
+                }
+
                 foreach (Trail trail in entityTrails.Values)
                 {
                     if (!trail.Overlaps(entity, out Vector3 overlapPosition))
@@ -68,6 +80,13 @@ namespace Assets.Project.Scripts
 
         public void Clear()
         {
+            isActive = false;
+            ClearNextFrame().Forget();
+        }
+
+        private async UniTask ClearNextFrame()
+        {
+            await UniTask.NextFrame();
             foreach (Trail trail in entityTrails.Values) { trail.Clear(); }
         }
     }

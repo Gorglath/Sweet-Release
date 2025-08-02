@@ -36,15 +36,11 @@ namespace Assets.Project.Scripts
             }
         }
 
-        public async UniTask StartLevel(bool showCinematicCamera, Func<UniTask> playCountdownAnimation)
+        public async UniTask StartLevel(Func<UniTask> playCountdownAnimation)
         {
             playerCamera.gameObject.SetActive(false);
-            cinematicCamera.gameObject.SetActive(showCinematicCamera);
-            if (showCinematicCamera)
-            {
-                await cinematicCamera.Play();
-            }
-
+            cinematicCamera.gameObject.SetActive(true);
+            await cinematicCamera.Play();
             playerCamera.gameObject.SetActive(true);
             await playCountdownAnimation.Invoke();
 
@@ -69,6 +65,8 @@ namespace Assets.Project.Scripts
                     {
                         targetEntity.SetState(EntityState.CELEBRATE);
                     }
+                    trailManager.Clear();
+                    entityCollsiionManager.Clear();
                     OnWonLevelRequestedEvent?.Invoke();
                     return;
                 }
@@ -79,6 +77,8 @@ namespace Assets.Project.Scripts
 
             if (entity == playerEntity)
             {
+                trailManager.Clear();
+                entityCollsiionManager.Clear();
                 OnPlayerCharacterDeath?.Invoke();
                 return;
             }

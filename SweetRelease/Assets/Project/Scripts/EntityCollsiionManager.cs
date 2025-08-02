@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Cysharp.Threading.Tasks;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Assets.Project.Scripts
@@ -8,6 +9,7 @@ namespace Assets.Project.Scripts
         public readonly List<Entity> pendingRemovalEntities = new();
         public readonly Dictionary<Entity, Bounds> registeredEntities = new();
 
+        private bool isActive = true;
         public void RegisterEntity(Entity entity)
         {
             if (!registeredEntities.ContainsKey(entity))
@@ -26,11 +28,26 @@ namespace Assets.Project.Scripts
 
         private void Update()
         {
+            if (!isActive)
+            {
+                return;
+            }
+
             foreach (KeyValuePair<Entity, Bounds> checkedEntityPair in registeredEntities)
             {
+                if (!checkedEntityPair.Key.IsAlive)
+                {
+                    continue;
+                }
+
                 Bounds entity1Bounds = checkedEntityPair.Value;
                 foreach (KeyValuePair<Entity, Bounds> targetEntityPair in registeredEntities)
                 {
+                    if (!targetEntityPair.Key.IsAlive)
+                    {
+                        continue;
+                    }
+
                     Bounds entity2Bounds = targetEntityPair.Value;
                     if (!entity2Bounds.Intersects(checkedEntityPair.Key, checkedEntityPair.Value))
                     {
@@ -79,14 +96,24 @@ namespace Assets.Project.Scripts
         }
         private void OnDrawGizmos()
         {
-            foreach (Bounds bounds in registeredEntities.Values)
+            foreach (KeyValuePair<Entity, Bounds> checkedPair in registeredEntities)
             {
-                bounds.OnDrawGizmos();
+                if (checkedPair.Key.IsAlive)
+                {
+                    checkedPair.Value.OnDrawGizmos();
+                }
             }
         }
 
         public void Clear()
         {
+            isActive = false;
+            ClearNextFrame().Forget();
+        }
+
+        private async UniTask ClearNextFrame()
+        {
+            await UniTask.NextFrame();
             registeredEntities.Clear();
         }
     }

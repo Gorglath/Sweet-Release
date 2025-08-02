@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: deda3d134d57c0f43b7a5b0806d2be6b, type: 3}
+  m_Name: Cherry_On_TopperConfig
+  m_EditorClassIdentifier: Assembly-CSharp:Assets.Project.Scripts:LevelConfig
+  Id: 2
+  Name: Cherry On Topper
+  LevelPrefab: {fileID: 2993663713597689291, guid: 296010b3c1e667a4088054e52ac92f4f, type: 3}

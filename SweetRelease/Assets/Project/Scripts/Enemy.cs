@@ -58,9 +58,9 @@ namespace Assets.Project.Scripts
             return totalLength > 0f ? worldSpeed / totalLength : 0f;
         }
 
-        public override void OnStateChanged(EntityState newState)
+        public override void OnStateChanged(EntityState newState, EntityState previousState)
         {
-            base.OnStateChanged(newState);
+            base.OnStateChanged(newState, previousState);
             // Once airborne enemy dies.
             if (newState == EntityState.AIRBOUND)
             {

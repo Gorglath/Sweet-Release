@@ -9,16 +9,21 @@ namespace Assets.Project.Scripts
         [SerializeField]
         protected CharacterConfig config;
 
+        [SerializeField]
+        protected Animator characterAnimator;
+
         private float m_jumpVelocity;
         private float m_isOnBoundIntervalCounter;
 
         public override void OnCreated()
         {
-
+            string waveSelected = Random.Range(0, 2) == 1 ? Constants.CharacterAnimationParameters.Wave_1 : Constants.CharacterAnimationParameters.Wave_2;
+            characterAnimator.SetTrigger(waveSelected);
         }
 
         public override void OnActivated()
         {
+            characterAnimator.SetTrigger(Constants.CharacterAnimationParameters.Start);
             SetState(EntityState.GLIDING);
         }
 
@@ -27,14 +32,21 @@ namespace Assets.Project.Scripts
             SetState(EntityState.STATIC);
         }
 
-        public override void OnStateChanged(EntityState newState)
+        public override void OnStateChanged(EntityState newState, EntityState previousState)
         {
             switch (newState)
             {
                 case EntityState.GLIDING:
+                    if (previousState == EntityState.AIRBOUND)
+                    {
+                        characterAnimator.SetTrigger(Constants.CharacterAnimationParameters.Land_Good);
+                    }
                     trailManager.RegisterEntity(this);
                     break;
                 case EntityState.AIRBOUND:
+                    characterAnimator.SetTrigger(Constants.CharacterAnimationParameters.Jump);
+                    trailManager.UnregisterEntity(this);
+                    break;
                 case EntityState.STATIC:
                 case EntityState.DEAD:
                     trailManager.UnregisterEntity(this);
@@ -77,6 +89,9 @@ namespace Assets.Project.Scripts
                 return;
             }
 
+            bool isOnBounds = entityCollisionManager.IsOnBounds(this);
+            string deathAnimation = isOnBounds ? Constants.CharacterAnimationParameters.Dead_Collision : Constants.CharacterAnimationParameters.Dead_Fall;
+            characterAnimator.SetTrigger(deathAnimation);
             // We ran into a wall or something, launch it if it isn't heavy.
             SetState(EntityState.DEAD);
         }
@@ -112,8 +127,26 @@ namespace Assets.Project.Scripts
         protected virtual void DoGlide()
         {
             // Apply rotation
-            int rotationDirection = Input.GetKey(KeyCode.LeftArrow) ? -1 : 0;
-            rotationDirection = Input.GetKey(KeyCode.RightArrow) ? 1 : rotationDirection;
+            bool isMovingLeft = Input.GetKey(KeyCode.LeftArrow);
+            bool isMovingRight = Input.GetKey(KeyCode.RightArrow);
+            int rotationDirection = 0;
+            if (isMovingLeft)
+            {
+                characterAnimator.SetBool(Constants.CharacterAnimationParameters.SlidingLeft, true);
+                characterAnimator.SetBool(Constants.CharacterAnimationParameters.SlidingRight, false);
+                rotationDirection = -1;
+            }
+            else if (isMovingRight)
+            {
+                characterAnimator.SetBool(Constants.CharacterAnimationParameters.SlidingLeft, false);
+                characterAnimator.SetBool(Constants.CharacterAnimationParameters.SlidingRight, true);
+                rotationDirection = 1;
+            }
+            else
+            {
+                characterAnimator.SetBool(Constants.CharacterAnimationParameters.SlidingLeft, false);
+                characterAnimator.SetBool(Constants.CharacterAnimationParameters.SlidingRight, false);
+            }
 
             if (rotationDirection != 0)
             {

@@ -13,6 +13,8 @@ namespace Assets.Project.Scripts
 
         public Vector3 Position => m_cachedTransform.position;
 
+        public bool IsAlive => m_cachedTransform != null;
+
         public EntityState EntityState { get; private set; }
 
         protected Transform m_cachedTransform;
@@ -78,8 +80,9 @@ namespace Assets.Project.Scripts
         {
             if (EntityState != state)
             {
+                EntityState previousState = EntityState;
                 EntityState = state;
-                OnStateChanged(state);
+                OnStateChanged(state, previousState);
 
                 if (EntityState == EntityState.DEAD)
                 {
@@ -88,7 +91,7 @@ namespace Assets.Project.Scripts
             }
         }
 
-        public virtual void OnStateChanged(EntityState newState) { }
+        public virtual void OnStateChanged(EntityState newState, EntityState previousState) { }
         public virtual void OnActivated() { }
         public virtual void OnDeactivated() { }
         public virtual void OnCreated() { }
