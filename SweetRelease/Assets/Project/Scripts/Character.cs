@@ -123,6 +123,9 @@ namespace Assets.Project.Scripts
             {
                 m_jumpVelocity = Mathf.Sqrt(config.FallJumpHeight * -2 * Physics.gravity.y * config.GravityScale);
                 SetState(EntityState.AIRBOUND);
+                characterAnimator.SetBool(Constants.CharacterAnimationParameters.SlidingLeft, false);
+                characterAnimator.SetBool(Constants.CharacterAnimationParameters.SlidingRight, false);
+                SFXManager.instance.PlaySFX(Constants.SFXIds.Jump);
                 return;
             }
 

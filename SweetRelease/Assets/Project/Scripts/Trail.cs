@@ -14,11 +14,13 @@ namespace Assets.Project.Scripts
         private readonly int length;
         private readonly LineRenderer lineRenderer;
 
+        [System.Obsolete]
         public Trail(Entity owner, TrailConfig config, LineRenderer trailLineRendederPrefab)
         {
             this.owner = owner;
             length = config.TrailLength;
             lineRenderer = Object.Instantiate(trailLineRendederPrefab);
+            lineRenderer.alignment = LineAlignment.Local;
         }
 
         public void Clear()
@@ -44,7 +46,9 @@ namespace Assets.Project.Scripts
 
             points.Enqueue(owner.Position);
             lineRenderer.positionCount = points.Count;
-            lineRenderer.SetPositions(points.ToArray());
+
+            Vector3[] tailOffsetPoints = points.Select(p => p + (Vector3.up * 0.05f)).ToArray();
+            lineRenderer.SetPositions(tailOffsetPoints);
         }
 
         public bool Overlaps(Entity entity, out Vector3 overlapPosition)
