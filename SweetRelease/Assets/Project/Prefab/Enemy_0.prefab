@@ -47,11 +47,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Config: {fileID: 11400000, guid: eb50fc71673285f4f96704eb19242977, type: 2}
   initialState: 1
+  trailAnchor: {fileID: 9191343764762449335}
   config: {fileID: 11400000, guid: abc14114aecfb10409a4f5b9bee532f9, type: 2}
   characterAnimator: {fileID: 2002895673346547420}
   m_rotationSmoothness: 10
   m_movementSmoothness: 5
   path: {fileID: 0}
+  startingPos01: 0
 --- !u!1001 &2579758574661907429
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -100,6 +102,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -2575193990578608558, guid: 1901dba3d76876d40a9bbcea92774feb, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.28
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 1901dba3d76876d40a9bbcea92774feb, type: 3}
       propertyPath: m_Name
       value: RacoonSlider_Animated01
@@ -144,3 +150,8 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!4 &9191343764762449335 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -2575193990578608558, guid: 1901dba3d76876d40a9bbcea92774feb, type: 3}
+  m_PrefabInstance: {fileID: 2579758574661907429}
+  m_PrefabAsset: {fileID: 0}

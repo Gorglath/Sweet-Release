@@ -9,8 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3063db2b0e84ac34fab6e7a6a174fd85, type: 3}
-  m_Name: ObstacleBoundsConfig
+  m_Script: {fileID: 11500000, guid: deda3d134d57c0f43b7a5b0806d2be6b, type: 3}
+  m_Name: LEVEL4Config
   m_EditorClassIdentifier: 
-  Size: {x: 15, y: 3, z: 15}
-  Offset: {x: 0, y: 1.5, z: 0}
+  Id: 4
+  Name: LEVEL 4
+  LevelPrefab: {fileID: 2993663713597689291, guid: 446f8def3d617034caa32e362fb877af, type: 3}

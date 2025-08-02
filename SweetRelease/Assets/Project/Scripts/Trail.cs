@@ -47,11 +47,9 @@ namespace Assets.Project.Scripts
                 _ = points.Dequeue();
             }
 
-            points.Enqueue(owner.Position);
+            points.Enqueue(owner.TrailAnchor.position);
             lineRenderer.positionCount = points.Count;
-
-            Vector3[] tailOffsetPoints = points.Select(p => p + (Vector3.up * 0.05f)).ToArray();
-            lineRenderer.SetPositions(tailOffsetPoints);
+            lineRenderer.SetPositions(points.ToArray());
         }
 
         public bool Overlaps(Entity entity, out Vector3 overlapPosition)

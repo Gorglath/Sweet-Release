@@ -11,6 +11,11 @@ namespace Assets.Project.Scripts
         [SerializeField]
         private EntityState initialState;
 
+        [SerializeField]
+        private Transform trailAnchor;
+
+        public Transform TrailAnchor => trailAnchor;
+
         public Vector3 Position => m_cachedTransform.position;
 
         public bool IsAlive => m_cachedTransform != null;

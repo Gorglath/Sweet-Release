@@ -47,6 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Config: {fileID: 11400000, guid: d2dd763d847e60242ac46ebc9af0c4d7, type: 2}
   initialState: 1
+  trailAnchor: {fileID: 6218929391183665008}
   config: {fileID: 11400000, guid: 4f4c42de85b730a48aecfa2e4aedc35a, type: 2}
   characterAnimator: {fileID: 3109007751973292572}
 --- !u!1001 &2385154335771841464
@@ -101,6 +102,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SugarSlider_Animated01
       objectReference: {fileID: 0}
+    - target: {fileID: 8599577789115712712, guid: a3e5c9a4c855660458a0e18a6d3b17ab, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.114
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -141,3 +146,8 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!4 &6218929391183665008 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8599577789115712712, guid: a3e5c9a4c855660458a0e18a6d3b17ab, type: 3}
+  m_PrefabInstance: {fileID: 2385154335771841464}
+  m_PrefabAsset: {fileID: 0}

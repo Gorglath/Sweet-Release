@@ -13,8 +13,17 @@ namespace Assets.Project.Scripts
         [SerializeField]
         private Path path;
 
+        [SerializeField]
+        [Range(0.0f, 1.0f)]
+        private float startingPos01 = 0;
+
         private float m_position01 = 0f;
         private bool m_pendingDeath;
+
+        private void Awake()
+        {
+            m_position01 = startingPos01;
+        }
 
         protected override void DoGlide()
         {

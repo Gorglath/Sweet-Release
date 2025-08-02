@@ -53,8 +53,9 @@ namespace Assets.Project.Scripts
                     {
                         continue;
                     }
-
-                    Vector3 closestCollisionPoint = entity2Bounds.GetClosestIntersectionPoint(entity1Bounds, checkedEntityPair.Key.Position);
+                    (Vector3 min, Vector3 max)? intersection = entity2Bounds.GetIntersection(entity1Bounds);
+                    Vector3 referencePoint = intersection.HasValue ? (intersection.Value.min + intersection.Value.max) * 0.5f : checkedEntityPair.Key.Position;
+                    Vector3 closestCollisionPoint = entity2Bounds.GetClosestIntersectionPoint(entity1Bounds, referencePoint);
                     checkedEntityPair.Key.OnCollisionObstacle(entity1Bounds, targetEntityPair.Key, entity2Bounds, closestCollisionPoint);
                 }
             }

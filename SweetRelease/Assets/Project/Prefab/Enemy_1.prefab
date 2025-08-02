@@ -47,11 +47,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Config: {fileID: 11400000, guid: d2dd763d847e60242ac46ebc9af0c4d7, type: 2}
   initialState: 1
+  trailAnchor: {fileID: 383450996013867787}
   config: {fileID: 11400000, guid: 4f4c42de85b730a48aecfa2e4aedc35a, type: 2}
   characterAnimator: {fileID: 7496671060110500044}
   m_rotationSmoothness: 10
   m_movementSmoothness: 3
   path: {fileID: 0}
+  startingPos01: 0
 --- !u!1001 &3401331958052303383
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -100,6 +102,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -6169439169664184036, guid: ecc698cfa9bc67f4e80fee496c930b71, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.249
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: ecc698cfa9bc67f4e80fee496c930b71, type: 3}
       propertyPath: m_Name
       value: PossumSlider_Animated01
@@ -112,6 +118,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 7496671060110500044}
   m_SourcePrefab: {fileID: 100100000, guid: ecc698cfa9bc67f4e80fee496c930b71, type: 3}
+--- !u!4 &383450996013867787 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -6169439169664184036, guid: ecc698cfa9bc67f4e80fee496c930b71, type: 3}
+  m_PrefabInstance: {fileID: 3401331958052303383}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2590305036741971782 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: ecc698cfa9bc67f4e80fee496c930b71, type: 3}
