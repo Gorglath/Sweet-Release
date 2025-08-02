@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: FriendsLevelConfig
   m_EditorClassIdentifier: 
   Id: 3
-  Name: Friends?
+  Name: LEVEL 3
   LevelPrefab: {fileID: 2993663713597689291, guid: d78148e09b0c6f5479a14a6de627a079, type: 3}

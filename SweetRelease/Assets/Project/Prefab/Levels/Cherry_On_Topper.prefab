@@ -398,7 +398,6 @@ MonoBehaviour:
   camera: {fileID: 4166148871737418965}
   cineamticLocations:
   - {fileID: 8298797487068527390}
-  - {fileID: 0}
   - {fileID: 3080506364181428613}
   timeBetweenCinematicLocations: 1
   transitionDuration: 1

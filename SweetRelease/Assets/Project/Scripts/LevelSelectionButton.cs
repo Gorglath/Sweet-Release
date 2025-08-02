@@ -14,10 +14,10 @@ namespace Assets.Project.Scripts
         private TMP_Text NameLabel;
 
         [SerializeField]
-        private TMP_Text levelNumberLabel;
+        private StarsBadge starsBadge;
 
         [SerializeField]
-        private StarsBadge starsBadge;
+        private Image cherryImage;
 
         public event Action<int> OnLevelSelectRequestedEvent;
         private int id;
@@ -37,12 +37,14 @@ namespace Assets.Project.Scripts
             OnLevelSelectRequestedEvent?.Invoke(id);
         }
 
-        public void Set(LevelConfig config, int levelNumber)
+        public void Set(LevelConfig config)
         {
             id = config.Id;
-            levelNumberLabel.text = levelNumber.ToString();
             NameLabel.text = config.Name;
-            starsBadge.Init(PlayerPrefs.GetInt(config.Id.ToString(), 0));
+            int totalStars = PlayerPrefs.GetInt(config.Id.ToString(), 0);
+            cherryImage.gameObject.SetActive(totalStars == 3);
+
+            starsBadge.Init(totalStars);
         }
     }
 }

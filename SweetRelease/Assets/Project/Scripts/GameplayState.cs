@@ -110,10 +110,11 @@ namespace Assets.Project.Scripts
 
             gameWonView = GameObject.Instantiate(gameWonViewPrefab);
 
-            bool hasNextLevel = System.Array.IndexOf(levelSelectionConfig.levelConfigs, levelConfig) != levelSelectionConfig.levelConfigs.Length - 1;
+            int indexOfLevel = System.Array.IndexOf(levelSelectionConfig.levelConfigs, levelConfig);
+            bool hasNextLevel = indexOfLevel != levelSelectionConfig.levelConfigs.Length - 1;
             gameWonView.Init(hasNextLevel);
             await gameWonView.Show();
-            await gameWonView.PlayWinAnimation(gameplayView.TotalTime, starsCollected);
+            await gameWonView.PlayWinAnimation(gameplayView.TotalTime, starsCollected, indexOfLevel);
             SubscribeGameWonListeners();
         }
 

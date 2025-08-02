@@ -37,6 +37,9 @@ namespace Assets.Project.Scripts
         [SerializeField]
         private string totalTimeFormat = "Time : {0}";
 
+        [SerializeField]
+        private TMP_Text levelLabel;
+
         public event Action OnRestartRequestedEvent;
         public event Action OnLevelSelectRequestedEvent;
         public event Action OnNextLevelRequestEvent;
@@ -75,8 +78,9 @@ namespace Assets.Project.Scripts
             nextLevelButton.gameObject.SetActive(hasNextLevel);
         }
 
-        public async UniTask PlayWinAnimation(float totalTime, int starsCollected)
+        public async UniTask PlayWinAnimation(float totalTime, int starsCollected, int currentLevel)
         {
+            levelLabel.text = currentLevel.ToString();
             await UniTask.Delay(500);
 
             if (starsCollected > 0)

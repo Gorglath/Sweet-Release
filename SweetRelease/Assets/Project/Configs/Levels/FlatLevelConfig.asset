@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: FlatLevelConfig
   m_EditorClassIdentifier: Assembly-CSharp:Assets.Project.Scripts:LevelConfig
   Id: 0
-  Name: Flat
+  Name: LEVEL 0
   LevelPrefab: {fileID: 1372427342163923372, guid: e9dd2ec9df539ae4696f56662d5c9e1a, type: 3}
