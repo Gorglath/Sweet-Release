@@ -9,8 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c676b2ad3cf76d343b4295c16c504228, type: 3}
-  m_Name: MainMenuAppStartupConfig
+  m_Script: {fileID: 11500000, guid: deda3d134d57c0f43b7a5b0806d2be6b, type: 3}
+  m_Name: LEVEL5Config
   m_EditorClassIdentifier: 
-  InitialState: 3
-  gameplayLevelConfig: {fileID: 11400000, guid: 0613de14617738c41a69f98dac52ba78, type: 2}
+  Id: 5
+  Name: LEVEL 5
+  LevelPrefab: {fileID: 2993663713597689291, guid: 6d9cad2abe5845447935afb078309d29, type: 3}
