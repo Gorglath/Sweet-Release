@@ -40,6 +40,7 @@ namespace Assets.Project.Scripts
                     if (previousState == EntityState.AIRBOUND)
                     {
                         characterAnimator.SetTrigger(Constants.CharacterAnimationParameters.Land_Good);
+                        SFXManager.instance.PlaySFX(Constants.SFXIds.Land);
                     }
                     trailManager.RegisterEntity(this);
                     break;
@@ -47,10 +48,11 @@ namespace Assets.Project.Scripts
                     characterAnimator.SetTrigger(Constants.CharacterAnimationParameters.Jump);
                     trailManager.UnregisterEntity(this);
                     break;
-                case EntityState.STATIC:
                 case EntityState.DEAD:
                     trailManager.UnregisterEntity(this);
+                    SFXManager.instance.PlaySFX(Constants.SFXIds.Death);
                     break;
+                case EntityState.STATIC:
                 case EntityState.NONE:
                     break;
             }
@@ -104,6 +106,7 @@ namespace Assets.Project.Scripts
                 SetState(EntityState.AIRBOUND);
                 characterAnimator.SetBool(Constants.CharacterAnimationParameters.SlidingLeft, false);
                 characterAnimator.SetBool(Constants.CharacterAnimationParameters.SlidingRight, false);
+                SFXManager.instance.PlaySFX(Constants.SFXIds.Jump);
                 return;
             }
         }

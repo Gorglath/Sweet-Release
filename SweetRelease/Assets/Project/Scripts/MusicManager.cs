@@ -73,12 +73,12 @@ namespace Assets.Project.Scripts
 
         public void Pause()
         {
-            audioSource.Stop();
+            audioSource.Pause();
         }
 
         public void Play()
         {
-            audioSource.Play();
+            audioSource.UnPause();
         }
 
         public void Muffle()
