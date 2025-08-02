@@ -14,5 +14,23 @@
             public const string SlidingRight = "SlidingRight";
             public const string SlidingLeft = "SlidingLeft";
         }
+
+        public class SFXIds
+        {
+            public const string ButtonClick = "ButtonClick";
+            public const string Collect = "Collect";
+            public const string Jump = "Jump";
+            public const string StarsUI_1 = "StarsUI_1";
+            public const string StarsUI_2 = "StarsUI_2";
+            public const string StarsUI_3 = "StarsUI_3";
+            public const string ButtonHover = "ButtonHover";
+            public const string Death = "Death";
+            public const string Countdown = "Countdown";
+            public const string CountdownEnd = "CountdownEnd";
+            public const string Land = "Land";
+            public const string Lose = "Lose";
+            public const string Win = "Win";
+            public const string WinEat = "WinEat";
+        }
     }
 }
