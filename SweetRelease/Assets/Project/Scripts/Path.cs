@@ -66,6 +66,53 @@ namespace Assets.Project.Scripts
             // If we reach here, return last point
             return PathPoints[^1];
         }
+        public float GetClosestPositionIgnoringY(Vector3 referencePosition)
+        {
+            if (m_cachedPathPoints == null || m_cachedPathPoints.Length < 2)
+                return 0f;
+
+            Vector2 posXZ = new Vector2(referencePosition.x, referencePosition.z);
+
+            float totalLength = 0f;
+            float closestPathDistance = 0f;
+            float shortestSqrDistance = float.MaxValue;
+
+            float accumulatedLength = 0f;
+
+            for (int i = 0; i < m_cachedPathPoints.Length - 1; i++)
+            {
+                Vector3 a = m_cachedPathPoints[i];
+                Vector3 b = m_cachedPathPoints[i + 1];
+
+                Vector2 aXZ = new Vector2(a.x, a.z);
+                Vector2 bXZ = new Vector2(b.x, b.z);
+                Vector2 segment = bXZ - aXZ;
+
+                float segmentLength = segment.magnitude;
+
+                // Skip degenerate segments
+                if (segmentLength < 0.001f)
+                    continue;
+
+                Vector2 ap = posXZ - aXZ;
+                float t = Mathf.Clamp01(Vector2.Dot(ap, segment) / (segmentLength * segmentLength));
+
+                Vector2 closestPointXZ = aXZ + t * segment;
+                float sqrDistance = (posXZ - closestPointXZ).sqrMagnitude;
+
+                if (sqrDistance < shortestSqrDistance)
+                {
+                    shortestSqrDistance = sqrDistance;
+                    closestPathDistance = accumulatedLength + t * segmentLength;
+                }
+
+                accumulatedLength += segmentLength;
+            }
+
+            totalLength = accumulatedLength;
+
+            return totalLength > 0f ? closestPathDistance / totalLength : 0f;
+        }
 
         private void OnDrawGizmos()
         {
