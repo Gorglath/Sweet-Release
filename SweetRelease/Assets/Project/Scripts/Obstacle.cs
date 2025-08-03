@@ -23,6 +23,7 @@ namespace Assets.Project.Scripts
             }
 
             var killEffect = Instantiate(killEffectPrefab, Position, Quaternion.identity);
+            Destroy(killEffect.gameObject, 5.0f);
             SetState(EntityState.DEAD);
             Kill();
         }

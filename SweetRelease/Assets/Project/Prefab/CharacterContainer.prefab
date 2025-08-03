@@ -50,6 +50,7 @@ MonoBehaviour:
   trailAnchor: {fileID: 6218929391183665008}
   config: {fileID: 11400000, guid: 4f4c42de85b730a48aecfa2e4aedc35a, type: 2}
   characterAnimator: {fileID: 3109007751973292572}
+  collisionEffect: {fileID: 0}
 --- !u!1001 &2385154335771841464
 PrefabInstance:
   m_ObjectHideFlags: 0

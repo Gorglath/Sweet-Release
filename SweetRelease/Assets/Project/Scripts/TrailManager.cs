@@ -1,6 +1,7 @@
 ﻿using Cysharp.Threading.Tasks;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 namespace Assets.Project.Scripts
 {
@@ -8,6 +9,9 @@ namespace Assets.Project.Scripts
     {
         [SerializeField]
         private LineRenderer lineRendererTemplate;
+
+        [SerializeField]
+        private GameObject collisionEffectPrefab;
 
         public readonly Dictionary<Entity, Trail> entityTrails = new();
         public readonly List<Entity> pendingRemovalEntities = new();
@@ -76,6 +80,9 @@ namespace Assets.Project.Scripts
 
                     trail.Clear();
                     entity.OnCollisionTrail(overlapPosition);
+
+                    var trailEffect = Instantiate(collisionEffectPrefab, entity.TrailAnchor.position, Quaternion.identity);
+                    Destroy(trailEffect.gameObject, 5.0f);
                     break;
                 }
             }

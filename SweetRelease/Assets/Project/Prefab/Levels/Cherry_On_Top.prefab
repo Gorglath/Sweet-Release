@@ -417,6 +417,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lineRendererTemplate: {fileID: 2732268541865682878, guid: 7c5a37ad35cda2649aee2c4c76d305d6, type: 3}
+  collisionEffectPrefab: {fileID: 2968117857348779091, guid: b3a831549f8c6d44a9801d5341278fb6, type: 3}
 --- !u!1 &5253340708870392222
 GameObject:
   m_ObjectHideFlags: 0
@@ -646,6 +647,7 @@ MonoBehaviour:
   levelMaterial: {fileID: 2100000, guid: 27851ccd42b9f69438fe214f0a0e94b3, type: 2}
   trailMaterial: {fileID: 2100000, guid: 24256a031adbf6448b0295df25ee47bb, type: 2}
   enemyTrailMaterial: {fileID: 2100000, guid: 50fc5daa75351f54faf3b417c301420a, type: 2}
+  trailCollisionMaterial: {fileID: 2100000, guid: 958f5d51b2d8269469c50776f6911a9c, type: 2}
 --- !u!1 &8348739470851079709
 GameObject:
   m_ObjectHideFlags: 0

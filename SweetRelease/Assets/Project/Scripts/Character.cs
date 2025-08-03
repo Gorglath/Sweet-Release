@@ -13,6 +13,9 @@ namespace Assets.Project.Scripts
         [SerializeField]
         protected Animator characterAnimator;
 
+        [SerializeField]
+        private GameObject collisionEffect;
+
         private float m_jumpVelocity;
         private float m_isOnBoundIntervalCounter;
         private int m_isOnBoundsFrames;

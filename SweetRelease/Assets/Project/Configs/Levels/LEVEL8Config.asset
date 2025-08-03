@@ -15,6 +15,6 @@ MonoBehaviour:
   Id: 8
   Name: LEVEL 8
   LevelPrefab: {fileID: 2993663713597689291, guid: e337780f36735db4fabd2227f12ec53e, type: 3}
-  LevelColor: {r: 0.9725491, g: 0.627451, b: 0.5294118, a: 1}
-  TrailColor: {r: 0.3056603, g: 0.067924514, b: 0, a: 1}
-  backgroundSprite: {fileID: 21300000, guid: 9c9499a5135838e4981d75a85280fee4, type: 3}
+  LevelColor: {r: 0.7607843, g: 0.5294118, b: 0.972549, a: 1}
+  TrailColor: {r: 0.19215687, g: 0.011764706, b: 0.3647059, a: 1}
+  backgroundSprite: {fileID: 21300000, guid: d9197a16e4a0a154594cd938a962acf3, type: 3}
