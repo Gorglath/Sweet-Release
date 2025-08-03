@@ -142,7 +142,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetEntity: {fileID: 8549048443511596523}
-  screenEdgeThreshold: {x: 0.3, y: 0.5}
+  screenEdgeThreshold: {x: 0.5, y: 0.5}
   followSpeed: 150
   cam: {fileID: 1471231274825527548}
 --- !u!1 &95839635448558412
