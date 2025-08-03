@@ -231,8 +231,8 @@ MonoBehaviour:
   - {fileID: 5509647039485815016}
   - {fileID: 8064402803760516454}
   - {fileID: 6409776529243995260}
-  timeBetweenElements: 0.3
-  scaleInDuration: 0.5
+  timeBetweenElements: 0.1
+  scaleInDuration: 0.3
   scaleInEase: 7
   totalTimeFormat: 'Time : {0}'
   levelLabel: {fileID: 3965967883301259682}
