@@ -12,6 +12,8 @@ namespace Assets.Project.Scripts
         private Transform[] countdownElements;
 
         [SerializeField]
+        private Transform goElement;
+        [SerializeField]
         private float timeBetweenElements;
 
         [SerializeField]
@@ -41,6 +43,8 @@ namespace Assets.Project.Scripts
             {
                 element.gameObject.SetActive(false);
             }
+
+            goElement.gameObject.SetActive(false);
         }
 
         public override async UniTask Play()
@@ -49,7 +53,8 @@ namespace Assets.Project.Scripts
             while (true)
             {
                 SFXManager.instance.PlaySFX(Constants.SFXIds.Countdown);
-                await ShowElement(elementIndex);
+                Transform selectedElement = countdownElements[elementIndex];
+                await ShowElement(selectedElement);
                 elementIndex++;
                 if (elementIndex == countdownElements.Length)
                 {
@@ -61,6 +66,7 @@ namespace Assets.Project.Scripts
                 await UniTask.Yield();
             }
 
+            ShowElement(goElement).Forget();
             SFXManager.instance.PlaySFX(Constants.SFXIds.CountdownEnd);
         }
 
@@ -79,9 +85,8 @@ namespace Assets.Project.Scripts
             }
         }
 
-        private async UniTask ShowElement(int elementIndex)
+        private async UniTask ShowElement(Transform selectedElement)
         {
-            Transform selectedElement = countdownElements[elementIndex];
             selectedElement.gameObject.SetActive(true);
 
             float scaleInDuration = showElementDuration * elementScaleInRatio;
