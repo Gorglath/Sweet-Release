@@ -98,7 +98,7 @@ namespace Assets.Project.Scripts
             string deathAnimation =
                 isOnBounds ?
                 (other.Config.IsHeavy ? Constants.CharacterAnimationParameters.Dead_Wall : Constants.CharacterAnimationParameters.Dead_Collision)
-                : Constants.CharacterAnimationParameters.Dead_Fall;
+                : (other.Config.IsHeavy ? Constants.CharacterAnimationParameters.Dead_Wall : Constants.CharacterAnimationParameters.Dead_Fall);
             characterAnimator.SetTrigger(deathAnimation);
             // We ran into a wall or something, launch it if it isn't heavy.
             SetState(EntityState.DEAD);
