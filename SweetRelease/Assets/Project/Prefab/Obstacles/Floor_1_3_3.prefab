@@ -52,7 +52,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Config: {fileID: 11400000, guid: 64871e68454662f4894cca6e2171aa45, type: 2}
   initialState: 1
+  trailAnchor: {fileID: 0}
   killOnCollision: 0
+  killEffectPrefab: {fileID: 0}
 --- !u!1001 &278736721831195370
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -65,6 +67,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cake_Wall_withTop (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 3727231313102816552, guid: f57a376910431e944a2cb70944d28a6d, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 8029472140551226388, guid: 057d150153b9fcd4387390903516e5be, type: 3}
     - target: {fileID: 4195435084265459388, guid: f57a376910431e944a2cb70944d28a6d, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -117,6 +123,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6778325908189718928, guid: f57a376910431e944a2cb70944d28a6d, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6778325908189718928, guid: f57a376910431e944a2cb70944d28a6d, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 27851ccd42b9f69438fe214f0a0e94b3, type: 2}
+    - target: {fileID: 6778325908189718928, guid: f57a376910431e944a2cb70944d28a6d, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: c842414fbce7490489d72cefd32c6ef7, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -139,6 +157,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cake_Wall_withTop (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3727231313102816552, guid: f57a376910431e944a2cb70944d28a6d, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 8029472140551226388, guid: 057d150153b9fcd4387390903516e5be, type: 3}
     - target: {fileID: 4195435084265459388, guid: f57a376910431e944a2cb70944d28a6d, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -191,6 +213,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6778325908189718928, guid: f57a376910431e944a2cb70944d28a6d, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6778325908189718928, guid: f57a376910431e944a2cb70944d28a6d, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 27851ccd42b9f69438fe214f0a0e94b3, type: 2}
+    - target: {fileID: 6778325908189718928, guid: f57a376910431e944a2cb70944d28a6d, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: c842414fbce7490489d72cefd32c6ef7, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -213,6 +247,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cake_Wall_withTop  (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3727231313102816552, guid: f57a376910431e944a2cb70944d28a6d, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 8029472140551226388, guid: 057d150153b9fcd4387390903516e5be, type: 3}
     - target: {fileID: 4195435084265459388, guid: f57a376910431e944a2cb70944d28a6d, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -265,6 +303,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6778325908189718928, guid: f57a376910431e944a2cb70944d28a6d, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6778325908189718928, guid: f57a376910431e944a2cb70944d28a6d, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 27851ccd42b9f69438fe214f0a0e94b3, type: 2}
+    - target: {fileID: 6778325908189718928, guid: f57a376910431e944a2cb70944d28a6d, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: c842414fbce7490489d72cefd32c6ef7, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -287,6 +337,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: 'Cake_Wall_withTop '
       objectReference: {fileID: 0}
+    - target: {fileID: 3727231313102816552, guid: f57a376910431e944a2cb70944d28a6d, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 8029472140551226388, guid: 057d150153b9fcd4387390903516e5be, type: 3}
     - target: {fileID: 4195435084265459388, guid: f57a376910431e944a2cb70944d28a6d, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -339,6 +393,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6778325908189718928, guid: f57a376910431e944a2cb70944d28a6d, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6778325908189718928, guid: f57a376910431e944a2cb70944d28a6d, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 27851ccd42b9f69438fe214f0a0e94b3, type: 2}
+    - target: {fileID: 6778325908189718928, guid: f57a376910431e944a2cb70944d28a6d, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: c842414fbce7490489d72cefd32c6ef7, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -361,6 +427,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cake_Wall_withTop
       objectReference: {fileID: 0}
+    - target: {fileID: 3727231313102816552, guid: f57a376910431e944a2cb70944d28a6d, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 8029472140551226388, guid: 057d150153b9fcd4387390903516e5be, type: 3}
     - target: {fileID: 4195435084265459388, guid: f57a376910431e944a2cb70944d28a6d, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -413,6 +483,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6778325908189718928, guid: f57a376910431e944a2cb70944d28a6d, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6778325908189718928, guid: f57a376910431e944a2cb70944d28a6d, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 27851ccd42b9f69438fe214f0a0e94b3, type: 2}
+    - target: {fileID: 6778325908189718928, guid: f57a376910431e944a2cb70944d28a6d, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: c842414fbce7490489d72cefd32c6ef7, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -435,6 +517,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cake_Wall_withTop  (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 3727231313102816552, guid: f57a376910431e944a2cb70944d28a6d, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 8029472140551226388, guid: 057d150153b9fcd4387390903516e5be, type: 3}
     - target: {fileID: 4195435084265459388, guid: f57a376910431e944a2cb70944d28a6d, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -487,6 +573,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6778325908189718928, guid: f57a376910431e944a2cb70944d28a6d, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6778325908189718928, guid: f57a376910431e944a2cb70944d28a6d, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 27851ccd42b9f69438fe214f0a0e94b3, type: 2}
+    - target: {fileID: 6778325908189718928, guid: f57a376910431e944a2cb70944d28a6d, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: c842414fbce7490489d72cefd32c6ef7, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

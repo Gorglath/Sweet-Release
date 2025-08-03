@@ -15,3 +15,6 @@ MonoBehaviour:
   Id: 0
   Name: LEVEL 0
   LevelPrefab: {fileID: 1372427342163923372, guid: e9dd2ec9df539ae4696f56662d5c9e1a, type: 3}
+  LevelColor: {r: 1, g: 1, b: 1, a: 1}
+  TrailColor: {r: 0.2603773, g: 0.2603773, b: 0.2603773, a: 1}
+  backgroundSprite: {fileID: 21300000, guid: 57dc156af01259c4abd4566380231f21, type: 3}

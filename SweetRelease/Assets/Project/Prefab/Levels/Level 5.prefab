@@ -2880,6 +2880,8 @@ MonoBehaviour:
   cinematicCamera: {fileID: 4676697963173349313}
   trailManager: {fileID: 5717187854516140749}
   entityCollsiionManager: {fileID: 8841711832511210979}
+  levelMaterial: {fileID: 2100000, guid: 27851ccd42b9f69438fe214f0a0e94b3, type: 2}
+  trailMaterial: {fileID: 2100000, guid: 24256a031adbf6448b0295df25ee47bb, type: 2}
 --- !u!1 &8170508258729564140
 GameObject:
   m_ObjectHideFlags: 0

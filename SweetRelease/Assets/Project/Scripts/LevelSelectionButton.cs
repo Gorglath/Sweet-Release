@@ -19,6 +19,9 @@ namespace Assets.Project.Scripts
         [SerializeField]
         private Image cherryImage;
 
+        [SerializeField]
+        private Image backgroundImage;
+
         public event Action<int> OnLevelSelectRequestedEvent;
         private int id;
 
@@ -43,7 +46,7 @@ namespace Assets.Project.Scripts
             NameLabel.text = config.Name;
             int totalStars = PlayerPrefs.GetInt(config.Id.ToString(), 0);
             cherryImage.gameObject.SetActive(totalStars == 3);
-
+            backgroundImage.sprite = config.backgroundSprite;
             starsBadge.Init(totalStars);
         }
     }

@@ -643,6 +643,8 @@ MonoBehaviour:
   cinematicCamera: {fileID: 4676697963173349313}
   trailManager: {fileID: 5717187854516140749}
   entityCollsiionManager: {fileID: 8841711832511210979}
+  levelMaterial: {fileID: 2100000, guid: 27851ccd42b9f69438fe214f0a0e94b3, type: 2}
+  trailMaterial: {fileID: 2100000, guid: 24256a031adbf6448b0295df25ee47bb, type: 2}
 --- !u!1 &8348739470851079709
 GameObject:
   m_ObjectHideFlags: 0
@@ -1118,10 +1120,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Floor_30_3_30
       objectReference: {fileID: 0}
-    - target: {fileID: 8870019486401677879, guid: 6abc162279f50b44fb183b72d1296d55, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: -4045570589573131861, guid: b0dff5cf33dcf084aa78e86aba3df559, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -47,7 +47,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Config: {fileID: 11400000, guid: c3769ec0b995be74dbd327ec894d4514, type: 2}
   initialState: 1
+  trailAnchor: {fileID: 0}
   killOnCollision: 0
+  killEffectPrefab: {fileID: 0}
 --- !u!1001 &6882038864761192479
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -100,6 +102,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Floor_1 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4210125565496635894, guid: ed86055854734b44d836f7383394c13e, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 8029472140551226388, guid: 057d150153b9fcd4387390903516e5be, type: 3}
+    - target: {fileID: 6585504360804612406, guid: ed86055854734b44d836f7383394c13e, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 8029472140551226388, guid: 057d150153b9fcd4387390903516e5be, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

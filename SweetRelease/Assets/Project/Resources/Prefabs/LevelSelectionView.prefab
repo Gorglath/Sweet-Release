@@ -56,6 +56,7 @@ MonoBehaviour:
   NameLabel: {fileID: 4439721642509810241}
   starsBadge: {fileID: 2029510586416499635}
   cherryImage: {fileID: 5450652505087183298}
+  backgroundImage: {fileID: 6540016078900470575}
 --- !u!1 &233270741236780251
 GameObject:
   m_ObjectHideFlags: 0

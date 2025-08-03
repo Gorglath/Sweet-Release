@@ -9,5 +9,8 @@ namespace Assets.Project.Scripts
         public int Id;
         public string Name;
         public Level LevelPrefab;
+        public Color LevelColor;
+        public Color TrailColor;
+        public Sprite backgroundSprite;
     }
 }

@@ -24,6 +24,12 @@ namespace Assets.Project.Scripts
         [SerializeField]
         private EntityCollsiionManager entityCollsiionManager;
 
+        [SerializeField]
+        private Material levelMaterial;
+
+        [SerializeField]
+        private Material trailMaterial;
+
         public event Action OnPlayerCharacterDeath;
         public event Action OnWonLevelRequestedEvent;
         public event Action OnStarCollected;
@@ -34,6 +40,12 @@ namespace Assets.Project.Scripts
             {
                 entity.Init(trailManager, entityCollsiionManager);
             }
+        }
+        
+        public void Init(Color color, Color trailColor)
+        {
+            levelMaterial.SetColor("_BaseColor", color);
+            trailMaterial.SetColor("_Color", trailColor);
         }
 
         public async UniTask StartLevel(Func<UniTask> playCountdownAnimation)

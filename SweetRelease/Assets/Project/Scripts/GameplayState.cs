@@ -201,6 +201,7 @@ namespace Assets.Project.Scripts
         private void CreateLevel()
         {
             activeLevel = Object.Instantiate(levelConfig.LevelPrefab);
+            activeLevel.Init(levelConfig.LevelColor, levelConfig.TrailColor);
             SubscribeListeners();
         }
 

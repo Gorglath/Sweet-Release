@@ -158,6 +158,8 @@ MonoBehaviour:
   cinematicCamera: {fileID: 5177939241741352889}
   trailManager: {fileID: 5403070241573307533}
   entityCollsiionManager: {fileID: 7109434593959097446}
+  levelMaterial: {fileID: 2100000, guid: 27851ccd42b9f69438fe214f0a0e94b3, type: 2}
+  trailMaterial: {fileID: 2100000, guid: 24256a031adbf6448b0295df25ee47bb, type: 2}
 --- !u!1 &1457854533666880035
 GameObject:
   m_ObjectHideFlags: 0
@@ -615,7 +617,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Config: {fileID: 11400000, guid: d3aaf479656b3ce43967e357d7687b6a, type: 2}
   initialState: 1
+  trailAnchor: {fileID: 0}
   killOnCollision: 0
+  killEffectPrefab: {fileID: 0}
 --- !u!1 &4578626273404063932
 GameObject:
   m_ObjectHideFlags: 0

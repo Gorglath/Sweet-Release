@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72416e4aaf79b8347acaf4e36500dd6d, type: 3}
   m_Name: WaffleEntityConfig
   m_EditorClassIdentifier: 
-  IsHeavy: 1
+  IsHeavy: 0
   IgnoreOwnTrail: 0
   IsCollectable: 0
   Glidable: 1
