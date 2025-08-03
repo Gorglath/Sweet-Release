@@ -82,13 +82,7 @@ namespace Assets.Project.Scripts
         // Converts world speed to normalized path speed
         private float GetNormalizedSpeed(float worldSpeed)
         {
-            float totalLength = 0f;
-            for (int i = 0; i < path.Length - 1; i++)
-            {
-                totalLength += Vector3.Distance(path.PathPoints[i], path.PathPoints[i + 1]);
-            }
-
-            return totalLength > 0f ? worldSpeed / totalLength : 0f;
+            return path.Length > 0f ? worldSpeed / path.WorldLegth : 0f;
         }
 
         public override void OnStateChanged(EntityState newState, EntityState previousState)

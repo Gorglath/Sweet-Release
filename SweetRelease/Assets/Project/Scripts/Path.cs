@@ -4,19 +4,25 @@ namespace Assets.Project.Scripts
 {
     public class Path : MonoBehaviour
     {
+        private Vector3[] m_cachedPathPoints;
+
         public int Length => PathPoints != null ? PathPoints.Length : 0;
 
-        public Vector3[] PathPoints => GetPathPoints();
+        public Vector3[] PathPoints => m_cachedPathPoints;
+        public float WorldLegth { get; private set; }
 
-        private Vector3[] GetPathPoints()
+        private void Awake()
         {
-            Vector3[] pathPoints = new Vector3[transform.childCount];
+            m_cachedPathPoints = new Vector3[transform.childCount];
             for (int i = 0; i < transform.childCount; i++)
             {
-                pathPoints[i] = transform.GetChild(i).position;
+                m_cachedPathPoints[i] = transform.GetChild(i).position;
             }
 
-            return pathPoints;
+            for (int i = 0; i < PathPoints.Length - 1; i++)
+            {
+                WorldLegth += Vector3.Distance(PathPoints[i], PathPoints[i + 1]);
+            }
         }
 
         public Vector3 GetPositionOnPath(float position01)
