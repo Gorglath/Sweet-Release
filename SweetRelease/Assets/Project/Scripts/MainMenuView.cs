@@ -12,19 +12,30 @@ namespace Assets.Project.Scripts
         [SerializeField]
         private Button creditsButton;
 
+        [SerializeField]
+        private Button snotButton;
+
         public event Action OnStartRequestedEvent;
         public event Action OnCreditsRequestedEvent;
+        public event Action OnSnotBoopRequestedEvent;
 
         public void OnEnable()
         {
             startButton.onClick.AddListener(OnStartButtonClicked);
             creditsButton.onClick.AddListener(OnCreditsButtonClicked);
+            snotButton.onClick.AddListener(OnSnotBooped);
+        }
+
+        private void OnSnotBooped()
+        {
+            OnSnotBoopRequestedEvent?.Invoke();
         }
 
         public void OnDisable()
         {
             startButton.onClick.RemoveListener(OnStartButtonClicked);
             creditsButton.onClick.RemoveListener(OnCreditsButtonClicked);
+            snotButton.onClick.RemoveListener(OnSnotBooped);
         }
 
         private void OnCreditsButtonClicked()

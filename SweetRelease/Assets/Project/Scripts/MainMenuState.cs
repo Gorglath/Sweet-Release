@@ -7,6 +7,7 @@ namespace Assets.Project.Scripts
     {
         private const string mainMenuViewPath = "Prefabs/MainMenuView";
         private const string creditsViewPath = "Prefabs/CreditsView";
+        private const string memeViewPath = "Prefabs/MemeView";
 
         private CreditsView creditsViewPrefab;
         private CreditsView creditsView;
@@ -14,13 +15,19 @@ namespace Assets.Project.Scripts
         private MainMenuView mainMenuViewPrefab;
         private MainMenuView mainMenuView;
 
+        private MemeView memeViewPrefab;
+
+        private int snotBoops;
+
         public override async UniTask PreTransitionIn()
         {
             Object loadedObjectMainMenuView = await Resources.LoadAsync<MainMenuView>(mainMenuViewPath);
             Object loadedCreditsObject = await Resources.LoadAsync<CreditsView>(creditsViewPath);
+            Object loadedMemeObject = await Resources.LoadAsync<MemeView>(memeViewPath);
 
             mainMenuViewPrefab = (MainMenuView)loadedObjectMainMenuView;
             creditsViewPrefab = (CreditsView)loadedCreditsObject;
+            memeViewPrefab = (MemeView)loadedMemeObject;
         }
 
         public override UniTask DuringTransitionIn()
@@ -45,10 +52,29 @@ namespace Assets.Project.Scripts
         {
             mainMenuView.OnStartRequestedEvent += OnStartRequested;
             mainMenuView.OnCreditsRequestedEvent += OnCreditsRequested;
+            mainMenuView.OnSnotBoopRequestedEvent += OnSnotBoopedRequested
+                ;
         }
 
-        public override void OnStateExit()
+        private void OnSnotBoopedRequested()
         {
+            this.snotBoops++;
+            SFXManager.instance.PlaySFX(Constants.SFXIds.Death);
+            if(snotBoops >= 10)
+            {
+                ShowTheMeme().Forget();
+            }
+        }
+
+        private async UniTask ShowTheMeme()
+        {
+            var memeView = Object.Instantiate(memeViewPrefab);
+
+            await memeView.Show();
+            await memeView.Play();
+
+            Object.Destroy(memeView.gameObject);
+            snotBoops = 0;
         }
 
         private void OnStartRequested()

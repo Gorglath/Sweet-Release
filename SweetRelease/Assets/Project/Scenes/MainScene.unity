@@ -443,6 +443,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainMenuMusic: {fileID: 8300000, guid: d79b514a84a28ab4a99461892d00e1fb, type: 3}
   gameplayMusic: {fileID: 8300000, guid: 610b14837bade8746b7492498c9b4693, type: 3}
+  memeMusic: {fileID: 8300000, guid: 88c377d64cf0c944db5c0c00872d7262, type: 3}
   audioSource: {fileID: 367849925}
   transitionInDuration: 0.3
   transitionOutDuration: 0.3

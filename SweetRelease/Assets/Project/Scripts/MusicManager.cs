@@ -1,4 +1,5 @@
-﻿using DG.Tweening;
+﻿using Cysharp.Threading.Tasks;
+using DG.Tweening;
 using UnityEngine;
 
 namespace Assets.Project.Scripts
@@ -12,6 +13,9 @@ namespace Assets.Project.Scripts
 
         [SerializeField]
         private AudioClip gameplayMusic;
+
+        [SerializeField]
+        private AudioClip memeMusic;
 
         [SerializeField]
         private AudioSource audioSource;
@@ -91,6 +95,16 @@ namespace Assets.Project.Scripts
         {
             lowPassFilter.enabled = false;
             audioSource.volume = originalVolume;
+        }
+
+        public async UniTask PlayMemeMusic(int duration)
+        {
+            mainMenuMusicTime = audioSource.time;
+            audioSource.Stop();
+            audioSource.clip = memeMusic;
+            audioSource.Play();
+            await UniTask.Delay(duration);
+            TransitionToMainMenu();
         }
     }
 }
