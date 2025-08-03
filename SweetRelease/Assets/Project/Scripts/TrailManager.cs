@@ -18,6 +18,10 @@ namespace Assets.Project.Scripts
         {
             if (entityTrails.ContainsKey(entity))
             {
+                if (pendingRemovalEntities.Contains(entity))
+                {
+                    pendingRemovalEntities.Remove(entity);
+                }
                 return;
             }
 

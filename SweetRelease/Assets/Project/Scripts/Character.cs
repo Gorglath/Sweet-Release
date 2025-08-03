@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 namespace Assets.Project.Scripts
 {
@@ -14,6 +15,7 @@ namespace Assets.Project.Scripts
 
         private float m_jumpVelocity;
         private float m_isOnBoundIntervalCounter;
+        private int m_isOnBoundsFrames;
 
         public override void OnCreated()
         {
@@ -132,6 +134,13 @@ namespace Assets.Project.Scripts
             // Check if floor is valid.
             if (!IsOnBounds())
             {
+                m_isOnBoundsFrames++;
+                if(m_isOnBoundsFrames < 3)
+                {
+                    return;
+                }
+
+                m_isOnBoundsFrames = 0;
                 m_jumpVelocity = Mathf.Sqrt(config.FallJumpHeight * -2 * Physics.gravity.y * config.GravityScale);
                 SetState(EntityState.AIRBOUND);
                 characterAnimator.SetBool(Constants.CharacterAnimationParameters.SlidingLeft, false);

@@ -160,6 +160,7 @@ MonoBehaviour:
   entityCollsiionManager: {fileID: 7109434593959097446}
   levelMaterial: {fileID: 2100000, guid: 27851ccd42b9f69438fe214f0a0e94b3, type: 2}
   trailMaterial: {fileID: 2100000, guid: 24256a031adbf6448b0295df25ee47bb, type: 2}
+  enemyTrailMaterial: {fileID: 2100000, guid: 50fc5daa75351f54faf3b417c301420a, type: 2}
 --- !u!1 &1457854533666880035
 GameObject:
   m_ObjectHideFlags: 0
@@ -516,6 +517,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca4ae7909add61d4aa7873a7d05e585c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lineRenderer: {fileID: 0}
 --- !u!1 &4145706577692433302
 GameObject:
   m_ObjectHideFlags: 0

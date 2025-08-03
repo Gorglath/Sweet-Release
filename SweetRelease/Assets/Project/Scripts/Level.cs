@@ -30,6 +30,9 @@ namespace Assets.Project.Scripts
         [SerializeField]
         private Material trailMaterial;
 
+        [SerializeField]
+        private Material enemyTrailMaterial;
+
         public event Action OnPlayerCharacterDeath;
         public event Action OnWonLevelRequestedEvent;
         public event Action OnStarCollected;
@@ -46,6 +49,7 @@ namespace Assets.Project.Scripts
         {
             levelMaterial.SetColor("_BaseColor", color);
             trailMaterial.SetColor("_Color", trailColor);
+            enemyTrailMaterial.SetColor("_Color", new Color(trailColor.r, trailColor.g, trailColor.b, 0.3f));
         }
 
         public async UniTask StartLevel(Func<UniTask> playCountdownAnimation)

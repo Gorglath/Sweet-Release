@@ -677,6 +677,7 @@ MonoBehaviour:
   entityCollsiionManager: {fileID: 8841711832511210979}
   levelMaterial: {fileID: 2100000, guid: 27851ccd42b9f69438fe214f0a0e94b3, type: 2}
   trailMaterial: {fileID: 2100000, guid: 24256a031adbf6448b0295df25ee47bb, type: 2}
+  enemyTrailMaterial: {fileID: 2100000, guid: 50fc5daa75351f54faf3b417c301420a, type: 2}
 --- !u!1001 &2917695763404338151
 PrefabInstance:
   m_ObjectHideFlags: 0

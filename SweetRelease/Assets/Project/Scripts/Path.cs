@@ -4,6 +4,9 @@ namespace Assets.Project.Scripts
 {
     public class Path : MonoBehaviour
     {
+        [SerializeField]
+        private LineRenderer lineRenderer;
+        
         private Vector3[] m_cachedPathPoints;
 
         public int Length => PathPoints != null ? PathPoints.Length : 0;
@@ -23,6 +26,9 @@ namespace Assets.Project.Scripts
             {
                 WorldLegth += Vector3.Distance(PathPoints[i], PathPoints[i + 1]);
             }
+
+            lineRenderer.positionCount = m_cachedPathPoints.Length;
+            lineRenderer.SetPositions(m_cachedPathPoints);
         }
 
         public Vector3 GetPositionOnPath(float position01)
