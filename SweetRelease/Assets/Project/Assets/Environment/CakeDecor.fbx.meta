@@ -1,34 +1,9 @@
 fileFormatVersion: 2
-guid: 4bbfcf38c0c248d4695ab8314b27de5e
+guid: 5985c5dd558e2f24293661b49413adc5
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Blue
-    second: {fileID: 2100000, guid: dec3cc6515189ff43b0335c072c3f8f4, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: CakeSponge_Brown
-    second: {fileID: 2100000, guid: a10eaca0caacbde46899c00e7052a16d, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Cake_Pink
-    second: {fileID: 2100000, guid: 9c28c1277f2470c46bc5bfd04d2fd200, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: GMTK_Trim
-    second: {fileID: 2100000, guid: a4fb3753e82c4014bb18709010621084, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: WhitishBlue
-    second: {fileID: 2100000, guid: 40a0922c2bb158e4eb293e42d5d9cede, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0

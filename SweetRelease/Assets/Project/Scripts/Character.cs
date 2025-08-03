@@ -44,6 +44,7 @@ namespace Assets.Project.Scripts
                 case EntityState.GLIDING:
                     if (previousState == EntityState.AIRBOUND)
                     {
+                        m_isOnBoundsFrames = 0;
                         characterAnimator.SetTrigger(Constants.CharacterAnimationParameters.Land_Good);
                         SFXManager.instance.PlaySFX(Constants.SFXIds.Land);
                     }
